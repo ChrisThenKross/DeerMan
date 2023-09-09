@@ -55,6 +55,8 @@ public class MeshGenerator : MonoBehaviour {
         mesh.triangles = triangles.ToArray ();
         mesh.RecalculateNormals ();
 
+        GenerateMeshCollider (mesh);
+
         watch.Stop ();
         Debug.Log ($"Generated mesh with {vertices.Count} vertices and {triangles.Count / 3} triangles in {watch.ElapsedMilliseconds}ms");
 
@@ -69,12 +71,20 @@ public class MeshGenerator : MonoBehaviour {
             playerPos = new Vector2 (Random.Range (0, map.GetLength (0)), Random.Range (0, map.GetLength (1)));
         }
 
-        Vector3 playerpos3 = new Vector3 (playerPos.x, 0, playerPos.y);
+        Vector3 playerpos3 = new Vector3 (playerPos.x, .5f, playerPos.y);
         playerpos3 *= squareSize;
         playerpos3.x -= map.GetLength (0) * squareSize / 2f;
         playerpos3.z -= map.GetLength (1) * squareSize / 2f;
 
         Player.transform.position = playerpos3;
+    }
+
+    void GenerateMeshCollider (Mesh mesh) {
+        MeshCollider meshCollider = GetComponent<MeshCollider> ();
+        if (meshCollider == null) {
+            meshCollider = gameObject.AddComponent<MeshCollider> ();
+        }
+        meshCollider.sharedMesh = mesh;
     }
 
     bool IsValidPlayerPosition (Vector2 pos) {
