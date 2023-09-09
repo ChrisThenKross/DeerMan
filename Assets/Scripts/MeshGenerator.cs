@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof (MeshFilter))]
+[RequireComponent (typeof (MeshRenderer))]
+[RequireComponent (typeof (MeshCollider))]
 public class MeshGenerator : MonoBehaviour {
     public SquareGrid squareGrid;
     List<Vector3> vertices;
