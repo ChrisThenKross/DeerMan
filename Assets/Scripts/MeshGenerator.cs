@@ -53,6 +53,8 @@ public class MeshGenerator : MonoBehaviour {
         Mesh mesh = new Mesh ();
         GetComponent<MeshFilter> ().mesh = mesh;
 
+        // TODO: Make floor mesh
+
         mesh.vertices = vertices.ToArray ();
         mesh.triangles = triangles.ToArray ();
         mesh.RecalculateNormals ();

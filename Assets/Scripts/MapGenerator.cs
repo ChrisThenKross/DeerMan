@@ -299,7 +299,7 @@ class RegionConnection {
 
                     if (xx <= 0 || yy <= 0 || xx >= width || yy >= height) continue;
 
-                    map[xx, yy] = 0;
+                    map[xx, yy] = -1;
                 }
             }
         }
