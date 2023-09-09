@@ -11,6 +11,7 @@ public class MeshGenerator : MonoBehaviour {
 
     // Object to instantiate
     public GameObject tree;
+    public GameObject floor;
 
     int[, ] map;
 
@@ -55,6 +56,11 @@ public class MeshGenerator : MonoBehaviour {
 
         watch.Stop ();
         Debug.Log ($"Generated mesh with {vertices.Count} vertices and {triangles.Count / 3} triangles in {watch.ElapsedMilliseconds}ms");
+
+        // Expand floor to cover entire map by dimensions
+        Vector3 floorScale = new Vector3 (map.GetLength (0) * squareSize / 10, 1, map.GetLength (1) * squareSize / 10);
+        floor.transform.localScale = floorScale;
+        floor.transform.position = new Vector3 (0, -wallHeight, 0);
 
     }
 
