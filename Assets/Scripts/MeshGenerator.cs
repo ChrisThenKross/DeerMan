@@ -12,6 +12,7 @@ public class MeshGenerator : MonoBehaviour {
     // Object to instantiate
     public GameObject tree;
     public GameObject floor;
+    public GameObject Player;
 
     int[, ] map;
 
@@ -60,8 +61,36 @@ public class MeshGenerator : MonoBehaviour {
         // Expand floor to cover entire map by dimensions
         Vector3 floorScale = new Vector3 (map.GetLength (0) * squareSize / 10, 1, map.GetLength (1) * squareSize / 10);
         floor.transform.localScale = floorScale;
-        floor.transform.position = new Vector3 (0, -wallHeight, 0);
+        floor.transform.position = new Vector3 (0, 0, 0);
 
+        // Put player somewhere not in a wall
+        Vector2 playerPos = new Vector2 (0, 0);
+        while (!IsValidPlayerPosition (playerPos)) {
+            playerPos = new Vector2 (Random.Range (0, map.GetLength (0)), Random.Range (0, map.GetLength (1)));
+        }
+
+        Vector3 playerpos3 = new Vector3 (playerPos.x, 0, playerPos.y);
+        playerpos3 *= squareSize;
+        playerpos3.x -= map.GetLength (0) * squareSize / 2f;
+        playerpos3.z -= map.GetLength (1) * squareSize / 2f;
+
+        Player.transform.position = playerpos3;
+    }
+
+    bool IsValidPlayerPosition (Vector2 pos) {
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int x = (int) pos.x + i;
+                int y = (int) pos.y + j;
+                if (x >= 0 && x < map.GetLength (0) && y >= 0 && y < map.GetLength (1)) {
+                    if (map[x, y] == 1) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     void ResetTrees () {
