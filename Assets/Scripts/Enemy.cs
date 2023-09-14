@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour {
 
     protected float health = 100f;
 
-    protected AI_MODE aiMode = AI_MODE.RANDOM_WALK;
+    //protected AI_MODE aiMode = AI_MODE.RANDOM_WALK;
+    protected AI_MODE aiMode = AI_MODE.CHASE_PLAYER;
     private float desiredRot = 0;
 
     [Range (0, 360)]
@@ -26,7 +27,8 @@ public class Enemy : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        aiMode = AI_MODE.RANDOM_WALK;
+        //aiMode = AI_MODE.RANDOM_WALK;
+        aiMode = AI_MODE.CHASE_PLAYER;
     }
 
     // Update is called once per frame
@@ -51,7 +53,6 @@ public class Enemy : MonoBehaviour {
             case AI_MODE.PATROL:
                 Patrol ();
                 break;
-
             case AI_MODE.IDLE:
                 Idle ();
                 break;
