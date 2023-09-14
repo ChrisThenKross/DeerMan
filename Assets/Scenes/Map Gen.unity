@@ -430,8 +430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2138478893}
   smoothTime: 0.3
-  offset: {x: 0, y: 6.43, z: -3.21}
-  rotation: {x: 51.47, y: 0, z: 0}
+  offset: {x: 0, y: 10, z: -10}
+  rotation: {x: 40, y: 0, z: 0}
 --- !u!1 &1086277153
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   rotationDamping: 10
-  player: {fileID: 0}
+  player: {fileID: 2138478887}
   directionDelta: 5
 --- !u!136 &1086277155
 CapsuleCollider:
