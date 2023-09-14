@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
     public float rotationDamping = 10f;
     public GameObject player;
 
+    protected float health = 100f;
+
     protected AI_MODE aiMode = AI_MODE.RANDOM_WALK;
     private float desiredRot = 0;
 
@@ -53,6 +55,10 @@ public class Enemy : MonoBehaviour {
             case AI_MODE.IDLE:
                 Idle ();
                 break;
+        }
+
+        if (health <= 0) {
+            Destroy (gameObject);
         }
     }
 
@@ -140,16 +146,9 @@ public class Enemy : MonoBehaviour {
 
     void OnCollisionEnter (Collision collision) {
         // If we hit a wall, turn around
-        if (collision.gameObject.tag == "Wall") {
+        if (collision.gameObject.tag == "GameController") {
             Transform t = GetComponent<Transform> ();
-            // Get current rotation
-            Vector3 rotation = t.rotation.eulerAngles;
-
-            // Rotate 180 degrees
-            rotation.y += 180;
-
-            // Apply rotation
-            t.rotation = Quaternion.Euler (rotation);
+            desiredRot += 180;
         }
     }
 
