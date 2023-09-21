@@ -10,7 +10,7 @@ public enum AI_MODE {
     IDLE
 }
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Entity {
 
     public float speed = 1f;
     public float rotationDamping = 10f;
@@ -29,7 +29,9 @@ public class Enemy : MonoBehaviour {
     public float directionDelta = 1f;
 
     // Start is called before the first frame update
-    void Start () {
+    protected override void Start () {
+        base.Start ();
+
         aiMode = AI_MODE.IDLE;
     }
 
