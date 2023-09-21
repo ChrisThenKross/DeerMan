@@ -14,12 +14,15 @@ public class Enemy : MonoBehaviour {
 
     public float speed = 1f;
     public float rotationDamping = 10f;
+    public float agroDistance = 10f;
+    public float forgetDistance = 20f;
+    public float fieldOfView = 45f;
     public GameObject player;
 
     protected float health = 100f;
 
-    //protected AI_MODE aiMode = AI_MODE.RANDOM_WALK;
-    protected AI_MODE aiMode = AI_MODE.CHASE_PLAYER;
+    protected AI_MODE aiMode = AI_MODE.RANDOM_WALK;
+
     private float desiredRot = 0;
 
     [Range (0, 360)]
@@ -27,8 +30,7 @@ public class Enemy : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        //aiMode = AI_MODE.RANDOM_WALK;
-        aiMode = AI_MODE.CHASE_PLAYER;
+        aiMode = AI_MODE.IDLE;
     }
 
     // Update is called once per frame
@@ -68,62 +70,41 @@ public class Enemy : MonoBehaviour {
             aiMode = AI_MODE.IDLE;
 
         Transform t = GetComponent<Transform> ();
-
-        // Randomly change rotation
         desiredRot += Random.Range (-directionDelta, directionDelta);
-
-        // Apply rotation
         t.rotation = Quaternion.Lerp (t.rotation, Quaternion.Euler (0, desiredRot, 0), Time.deltaTime * rotationDamping);
-
-        // Move forward
         t.position += t.forward * speed * Time.deltaTime;
+
+        // Check if we should chase player
+        if (Vector3.Distance (t.position, player.transform.position) < agroDistance) {
+            aiMode = AI_MODE.CHASE_PLAYER;
+        }
     }
 
     void ChasePlayer () {
         Transform t = GetComponent<Transform> ();
-        // Get current rotation
-        Vector3 rotation = t.rotation.eulerAngles;
-
-        // Get direction to player
         Vector3 direction = player.transform.position - t.position;
-
-        // Get angle to player
         float angle = Vector3.Angle (t.forward, direction);
 
-        // If angle is greater than directionDelta, rotate
-        if (angle > directionDelta) {
-            // Get rotation to player
-            Quaternion targetRotation = Quaternion.LookRotation (direction);
-
-            // Rotate towards player
-            t.rotation = Quaternion.RotateTowards (t.rotation, targetRotation, directionDelta);
-        }
-
-        // Move forward
+        Quaternion targetRotation = Quaternion.LookRotation (direction);
+        t.rotation = Quaternion.RotateTowards (t.rotation, targetRotation, angle);
         t.position += t.forward * speed * Time.deltaTime;
+
+        // Check if we should forget player
+        if (Vector3.Distance (t.position, player.transform.position) > forgetDistance) {
+            if (Random.Range (0, 100) < 50)
+                aiMode = AI_MODE.IDLE;
+            else
+                aiMode = AI_MODE.RANDOM_WALK;
+        }
     }
 
     void FleePlayer () {
         Transform t = GetComponent<Transform> ();
-        // Get current rotation
-        Vector3 rotation = t.rotation.eulerAngles;
-
-        // Get direction to player
         Vector3 direction = player.transform.position - t.position;
-
-        // Get angle to player
         float angle = Vector3.Angle (t.forward, direction);
 
-        // If angle is greater than directionDelta, rotate
-        if (angle > directionDelta) {
-            // Get rotation to player
-            Quaternion targetRotation = Quaternion.LookRotation (direction);
-
-            // Rotate away from player
-            t.rotation = Quaternion.RotateTowards (t.rotation, targetRotation, -directionDelta);
-        }
-
-        // Move forward
+        Quaternion targetRotation = Quaternion.LookRotation (direction);
+        t.rotation = Quaternion.RotateTowards (t.rotation, targetRotation, -angle);
         t.position += t.forward * speed * Time.deltaTime;
     }
 
@@ -143,6 +124,14 @@ public class Enemy : MonoBehaviour {
 
         Transform t = GetComponent<Transform> ();
         t.rotation = Quaternion.Lerp (t.rotation, Quaternion.Euler (0, desiredRot, 0), Time.deltaTime * rotationDamping);
+
+        // Check if the player is in cone of vision
+        Vector3 direction = player.transform.position - t.position;
+        float angle = Vector3.Angle (t.forward, direction);
+        float distance = Vector3.Distance (t.position, player.transform.position);
+        if (angle < fieldOfView && distance < agroDistance) {
+            aiMode = AI_MODE.CHASE_PLAYER;
+        }
     }
 
     void OnCollisionEnter (Collision collision) {
