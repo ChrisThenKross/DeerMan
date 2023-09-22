@@ -16592,6 +16592,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8723730200069887304, guid: 459fba7dc47f81f479d256ba01cfd883, type: 3}
   m_PrefabInstance: {fileID: 519797547}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &520583575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4121327100207498464, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 475eb7c699735544281fbde7e2baa122, type: 2}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.9336615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4329906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      propertyPath: m_Name
+      value: alien-ufo_Rig
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 520583578}
+    - targetCorrespondingSourceObject: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 520583579}
+  m_SourcePrefab: {fileID: 100100000, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+--- !u!1 &520583576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+  m_PrefabInstance: {fileID: 520583575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &520583577 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4121327100207498464, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
+  m_PrefabInstance: {fileID: 520583575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &520583578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520583576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e978e78175baaf4ea5c4c17e57069d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  anim: {fileID: 520583577}
+--- !u!114 &520583579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520583576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d2d664e80a675204a923c1f9ce710528, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 520583578}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5736a37d-2501-4179-b2c9-5a4d63b0f2d7
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &521772271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70587,3 +70724,4 @@ SceneRoots:
   - {fileID: 914314745}
   - {fileID: 1388354254}
   - {fileID: 1711318355}
+  - {fileID: 520583575}
