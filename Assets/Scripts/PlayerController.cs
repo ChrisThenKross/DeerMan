@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private Vector2 move;
+    private Vector2 move, mouseLook;
+    private Vector3 rotationTarget;
     public Animator anim;
 
     public void OnMove(InputAction.CallbackContext context)
@@ -14,9 +15,16 @@ public class PlayerController : MonoBehaviour
         move = context.ReadValue<Vector2>();
     }
 
+    public void OnMouseLook(InputAction.CallbackContext context)
+    {
+        mouseLook = context.ReadValue<Vector2>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+        //Ray ray = Camera.main.ScreenPointToRay;
         //transform
         if (move.sqrMagnitude > 0.1f)
         {
@@ -28,4 +36,10 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Vertical", Input.GetAxis("Vertical"));
         anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
     }
+
+    public void movePlayerWithAim()
+    {
+
+    }
+
 }
