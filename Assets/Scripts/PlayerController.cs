@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        //Ray ray = Camera.main.ScreenPointToRay;
-        //transform
-        if (move.sqrMagnitude > 0.1f)
+        Ray ray = Camera.main.ScreenPointToRay(mouseLook);
+
+        if(Physics.Raycast(ray, out hit))
         {
-            Vector3 movement = new Vector3(move.x, 0f, move.y);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            rotationTarget = hit.point;
         }
+        movePlayerWithAim();
+        //transform
         // animation
         anim.SetFloat("Vertical", Input.GetAxis("Vertical"));
         anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
@@ -39,7 +39,19 @@ public class PlayerController : MonoBehaviour
 
     public void movePlayerWithAim()
     {
+        var lookPosition = rotationTarget - transform.position;
+        lookPosition.y = 0;
+        var rotation = Quaternion.LookRotation(lookPosition);
 
+        Vector3 aimDirection = new Vector3(rotationTarget.x, 0f, rotationTarget.z);
+        if (aimDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
+        }
+
+        Vector3 movement = new Vector3(move.x, 0f, move.y);
+
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);
     }
 
 }
