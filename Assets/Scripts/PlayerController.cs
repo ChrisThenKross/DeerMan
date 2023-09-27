@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
             rotationTarget = hit.point;
         }
         movePlayerWithAim();
-        //transform
+
         // animation
         anim.SetFloat("Vertical", Input.GetAxis("Vertical"));
         anim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
