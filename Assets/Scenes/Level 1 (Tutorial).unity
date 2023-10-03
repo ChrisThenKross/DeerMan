@@ -631,7 +631,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpellCastPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -644,7 +644,7 @@ Transform:
   m_GameObject: {fileID: 498213768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.673, z: 1.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1563,7 +1563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 4121327100216601344, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2493,7 +2493,7 @@ Transform:
   m_GameObject: {fileID: 2098038251}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0.05, y: 14.05, z: -10.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2645,11 +2645,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31562bf3c06c45240987339e9dfb7979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellToCast: {fileID: 4337240297909078098, guid: 2f1d3bd758232b84989527178fdc164f, type: 3}
   maxMana: 100
   rechargeRate: 2
   timeBetweenCast: 0.25
   currentMana: 0
-  castPoint: {fileID: 0}
+  castPoint: {fileID: 498213769}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
