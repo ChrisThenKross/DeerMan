@@ -56,7 +56,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
     void castSpell()
     {
-        print("Casting spell");
+        //print("Casting spell");
         Instantiate(spellToCast, castPoint.position, castPoint.rotation);
     }
 
