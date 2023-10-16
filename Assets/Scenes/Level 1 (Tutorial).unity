@@ -644,7 +644,7 @@ Transform:
   m_GameObject: {fileID: 498213768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.673, z: 1.06}
+  m_LocalPosition: {x: 0, y: 1.673, z: 1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1863,9 +1863,6 @@ PrefabInstance:
       addedObject: {fileID: 2117131044}
     - targetCorrespondingSourceObject: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2117131045}
-    - targetCorrespondingSourceObject: {fileID: 4121327100216899360, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2117131046}
   m_SourcePrefab: {fileID: 100100000, guid: 31a9d4f9e24b06644b3a6a2f7d701471, type: 3}
 --- !u!1001 &1307302645
@@ -2398,7 +2395,7 @@ GameObject:
   - component: {fileID: 1993555320}
   - component: {fileID: 1993555319}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD Elements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3062,7 +3059,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117131046}
         m_TargetAssemblyTypeName: MagicQueue, Assembly-CSharp
-        m_MethodName: RunNextSpell
+        m_MethodName: castSpell
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3137,24 +3134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb61c7bebfa35054fbc4ac91914990fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2117131045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117131037}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31562bf3c06c45240987339e9dfb7979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellToCast: {fileID: 4337240297909078098, guid: 2f1d3bd758232b84989527178fdc164f, type: 3}
-  maxMana: 100
-  rechargeRate: 2
-  timeBetweenCast: 0.25
-  currentMana: 0
-  castPoint: {fileID: 498213769}
 --- !u!114 &2117131046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3168,6 +3147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellQueue: {fileID: 541331849}
+  castPoint: {fileID: 498213769}
+  med_fireball: {fileID: 7655544330341346962, guid: 4ea8449abc25db741af357562a06267f, type: 3}
+  big_fireball: {fileID: 4337240297909078098, guid: 3ab40c7614351754aaaa1288b1c601ee, type: 3}
+  spellToCast: {fileID: 7655544330341346962, guid: 4ea8449abc25db741af357562a06267f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

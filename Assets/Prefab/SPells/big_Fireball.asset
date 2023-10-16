@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fef6f1bf9e66b4fbf57912e430f4a2, type: 3}
   m_Name: big_Fireball
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 15
   ManaCost: 5
   Lifetime: 2
-  Speed: 15
+  Speed: 10
   SpellRadius: 0.5
