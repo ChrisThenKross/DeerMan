@@ -17,8 +17,8 @@ public class OpenGate : MonoBehaviour {
             gameObject.SetActive (false);
             enabled = false; // this is mad sus UPDATE: idk what this does
 
-            // give the player fireball ability
-            player.gameObject.GetComponent<PlayerMagicSystem> ().enabled = true;
+            // give the player fireball ability deprecated
+            //player.gameObject.GetComponent<PlayerMagicSystem> ().enabled = true;
 
             // Spawn enemies
             Vector3 basePosition = new Vector3 (0, 0.5f, 30);

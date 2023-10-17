@@ -53,6 +53,42 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddFireball"",
+                    ""type"": ""Button"",
+                    ""id"": ""d49b038f-bc70-486a-8069-60bccbb5a9dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddIce"",
+                    ""type"": ""Button"",
+                    ""id"": ""a52bd3d6-4790-4287-820e-e71a9961a84c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddHorn"",
+                    ""type"": ""Button"",
+                    ""id"": ""54abf390-32b0-4518-a7f3-f32d6d932eb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CastQueue"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e9210f9-b9f8-4814-bef9-3c6bf42f2cce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +168,50 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""action"": ""CastSpell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5b93c43-d4d7-48c3-9fe9-c36d9d8be7e4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddFireball"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54f31d5e-f8e8-459b-8844-fc240e03c2bd"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddIce"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a488bebd-5ba3-4d24-b7cf-e706d55ed55e"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddHorn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e530ff30-902e-41bf-9bdb-8c92f20801b1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CastQueue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +223,10 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_mouseLook = m_Player.FindAction("mouseLook", throwIfNotFound: true);
         m_Player_CastSpell = m_Player.FindAction("CastSpell", throwIfNotFound: true);
+        m_Player_AddFireball = m_Player.FindAction("AddFireball", throwIfNotFound: true);
+        m_Player_AddIce = m_Player.FindAction("AddIce", throwIfNotFound: true);
+        m_Player_AddHorn = m_Player.FindAction("AddHorn", throwIfNotFound: true);
+        m_Player_CastQueue = m_Player.FindAction("CastQueue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +291,10 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_mouseLook;
     private readonly InputAction m_Player_CastSpell;
+    private readonly InputAction m_Player_AddFireball;
+    private readonly InputAction m_Player_AddIce;
+    private readonly InputAction m_Player_AddHorn;
+    private readonly InputAction m_Player_CastQueue;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -214,6 +302,10 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @mouseLook => m_Wrapper.m_Player_mouseLook;
         public InputAction @CastSpell => m_Wrapper.m_Player_CastSpell;
+        public InputAction @AddFireball => m_Wrapper.m_Player_AddFireball;
+        public InputAction @AddIce => m_Wrapper.m_Player_AddIce;
+        public InputAction @AddHorn => m_Wrapper.m_Player_AddHorn;
+        public InputAction @CastQueue => m_Wrapper.m_Player_CastQueue;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +324,18 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @CastSpell.started += instance.OnCastSpell;
             @CastSpell.performed += instance.OnCastSpell;
             @CastSpell.canceled += instance.OnCastSpell;
+            @AddFireball.started += instance.OnAddFireball;
+            @AddFireball.performed += instance.OnAddFireball;
+            @AddFireball.canceled += instance.OnAddFireball;
+            @AddIce.started += instance.OnAddIce;
+            @AddIce.performed += instance.OnAddIce;
+            @AddIce.canceled += instance.OnAddIce;
+            @AddHorn.started += instance.OnAddHorn;
+            @AddHorn.performed += instance.OnAddHorn;
+            @AddHorn.canceled += instance.OnAddHorn;
+            @CastQueue.started += instance.OnCastQueue;
+            @CastQueue.performed += instance.OnCastQueue;
+            @CastQueue.canceled += instance.OnCastQueue;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +349,18 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @CastSpell.started -= instance.OnCastSpell;
             @CastSpell.performed -= instance.OnCastSpell;
             @CastSpell.canceled -= instance.OnCastSpell;
+            @AddFireball.started -= instance.OnAddFireball;
+            @AddFireball.performed -= instance.OnAddFireball;
+            @AddFireball.canceled -= instance.OnAddFireball;
+            @AddIce.started -= instance.OnAddIce;
+            @AddIce.performed -= instance.OnAddIce;
+            @AddIce.canceled -= instance.OnAddIce;
+            @AddHorn.started -= instance.OnAddHorn;
+            @AddHorn.performed -= instance.OnAddHorn;
+            @AddHorn.canceled -= instance.OnAddHorn;
+            @CastQueue.started -= instance.OnCastQueue;
+            @CastQueue.performed -= instance.OnCastQueue;
+            @CastQueue.canceled -= instance.OnCastQueue;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +383,9 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
         void OnCastSpell(InputAction.CallbackContext context);
+        void OnAddFireball(InputAction.CallbackContext context);
+        void OnAddIce(InputAction.CallbackContext context);
+        void OnAddHorn(InputAction.CallbackContext context);
+        void OnCastQueue(InputAction.CallbackContext context);
     }
 }

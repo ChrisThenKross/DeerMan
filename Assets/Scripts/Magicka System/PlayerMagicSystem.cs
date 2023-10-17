@@ -7,8 +7,8 @@ public class PlayerMagicSystem : MonoBehaviour
     [SerializeField] private Spell spellToCast;
 
     //following tutorial, our system doesn't use mana but rather the "queuing" spell magicka system
-    [SerializeField] private float maxMana = 100f;
-    [SerializeField] private float rechargeRate = 2f;
+    //[SerializeField] private float maxMana = 100f;
+    //[SerializeField] private float rechargeRate = 2f;
     [SerializeField] private float timeBetweenCast = 0.25f;
     [SerializeField] private float currentMana;
     [SerializeField] private Transform castPoint;

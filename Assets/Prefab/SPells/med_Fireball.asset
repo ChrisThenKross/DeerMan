@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9fef6f1bf9e66b4fbf57912e430f4a2, type: 3}
-  m_Name: Fireball
+  m_Name: med_Fireball
   m_EditorClassIdentifier: 
   Damage: 10
   ManaCost: 5

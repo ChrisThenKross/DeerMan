@@ -31,7 +31,7 @@ public class Spell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Apply spell effects to object / enemy
+        //Apply spell effects to object / enemy once this hits something
         //Apply sound effects and particle effects
         Destroy(this.gameObject);
     }
