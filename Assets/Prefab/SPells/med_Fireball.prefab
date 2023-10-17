@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5336537763251121457}
   - component: {fileID: 3207214673854711619}
   - component: {fileID: 7655544330341346962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: med_Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6737887614276665047}
   - component: {fileID: 3673047305644900342}
   - component: {fileID: 806641983192765291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4936,7 +4936,7 @@ GameObject:
   - component: {fileID: 4915340807210506531}
   - component: {fileID: 4776804489977015159}
   - component: {fileID: 8121655727325998958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireballGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

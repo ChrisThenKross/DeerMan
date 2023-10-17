@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttack;
     bool alreadyAttacked;
     public GameObject projectile;
+    [SerializeField] private Transform throwPoint;
 
     //States
     public float sightRange, attackRange;
@@ -79,14 +80,19 @@ public class EnemyAI : MonoBehaviour
         //Make surer enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        //transform.LookAt(player);
+        Vector3 direction = player.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 25f * Time.deltaTime);
+
 
         if (!alreadyAttacked)
         {
             //Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, throwPoint.position, throwPoint.rotation).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
 
             alreadyAttacked = true;
