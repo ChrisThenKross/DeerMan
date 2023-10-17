@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "mouseLook",
+                    "type": "Value",
+                    "id": "cdea8137-e84d-4bac-88a4-d7d6edcd8e6a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CastSpell",
+                    "type": "PassThrough",
+                    "id": "c7092f30-128d-4dda-b772-dea7f8beca07",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +88,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "627ec482-5f5e-4a9b-98e8-8b330942fc06",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "mouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b4cced1-4de8-4615-85d3-27f17a7472ad",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CastSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

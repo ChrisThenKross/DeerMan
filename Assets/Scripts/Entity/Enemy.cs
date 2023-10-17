@@ -12,7 +12,7 @@ public enum AI_MODE {
 
 public class Enemy : Entity {
 
-    public float speed = 1f;
+    public float speed = 3f;
     public float rotationDamping = 10f;
     public float agroDistance = 10f;
     public float forgetDistance = 20f;
@@ -33,6 +33,7 @@ public class Enemy : Entity {
         base.Start ();
 
         aiMode = AI_MODE.IDLE;
+        player = GameObject.Find ("Player");
     }
 
     // Update is called once per frame
