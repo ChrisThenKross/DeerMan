@@ -13,7 +13,7 @@ public class DialogueScript : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        startDialogue();
+        Invoke("startDialogue", 12);
     }
 
     // Update is called once per frame
