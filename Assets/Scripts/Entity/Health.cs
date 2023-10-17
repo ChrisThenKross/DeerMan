@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "med_Fireball(Clone)")
         {
