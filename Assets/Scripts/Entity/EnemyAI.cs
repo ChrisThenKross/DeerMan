@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    Animator animator;
+
     //patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -30,6 +32,11 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -72,6 +79,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        animator.SetTrigger("Walk");
         agent.SetDestination(player.position);
     }
 
@@ -84,6 +92,8 @@ public class EnemyAI : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 25f * Time.deltaTime);
+
+        animator.SetTrigger("Attack");
 
 
         if (!alreadyAttacked)
