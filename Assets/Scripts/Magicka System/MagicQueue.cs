@@ -12,6 +12,7 @@ public class MagicQueue : MonoBehaviour
     [SerializeField] private TMP_Text spellQueue;
     [SerializeField] private Transform castPoint;
     // LIST OF ALL OUR POSSIBLE SPELLS
+    [SerializeField] private Spell small_fireball;
     [SerializeField] private Spell med_fireball;
     [SerializeField] private Spell big_fireball;
     [SerializeField] private Spell spellToCast;
@@ -26,7 +27,6 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Adding fireball");
             AddSpell("fireball");
         }
     }
@@ -35,7 +35,6 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Adding ice");
             AddSpell("ice");
         }
     }
@@ -44,7 +43,6 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Adding horn");
             AddSpell("horn");
         }
     }
@@ -79,17 +77,21 @@ public class MagicQueue : MonoBehaviour
                 // instantiate whatever spell was just created
 
                 // please replace after this works
-                if (spell.Equals("fireball,fireball"))
+                if (spell.Equals("fireball"))
+                {
+                    Instantiate(small_fireball, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("fireball,fireball"))
                 {
                     Instantiate(med_fireball, castPoint.position, castPoint.rotation);
-                } else if (spell.Equals("fireball,fireball,fireball"))
+                } 
+                else if (spell.Equals("fireball,fireball,fireball"))
                 {
                     Instantiate(big_fireball, castPoint.position, castPoint.rotation);
                 }
             }
             else
             {
-                Debug.Log("There are no spells left!");
                 spellQueue.text = "No spell casted!";
             }
         }

@@ -19088,7 +19088,7 @@ GameObject:
   - component: {fileID: 982680367841393871}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19164,8 +19164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  swordDamage: 0
-  enemyDamage: 0
   currentHealth: 0
   healthBar: {fileID: 372873658870905509}
 --- !u!136 &6020335476083194671

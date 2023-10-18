@@ -29,8 +29,14 @@ public class Spell : MonoBehaviour
         if (SpellToCast.Speed > 0) transform.Translate(Vector3.forward * SpellToCast.Speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
+        if (collision.tag == "Enemy")
+        {
+            // damage the enemy based on the damage
+            if (collision.GetComponent<Health>() != null)
+                collision.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage);
+        }
         //Apply spell effects to object / enemy once this hits something
         //Apply sound effects and particle effects
         Destroy(this.gameObject);

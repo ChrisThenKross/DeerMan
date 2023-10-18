@@ -6,12 +6,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
-    // there is a better way to do this
-    public int swordDamage;
-    public int enemyDamage;
     public int currentHealth;
-
-    //public HealthBar healthBar;
     public Slider healthBar;
 
     // Start is called before the first frame update
@@ -21,16 +16,8 @@ public class Health : MonoBehaviour
         healthBar.value = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-
-    }
-
-    void TakeDamage(int damage)
-    {
-        Debug.Log(currentHealth);
-        Debug.Log(damage);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -38,21 +25,5 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
         healthBar.value = currentHealth;
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.name == "med_Fireball(Clone)")
-        {
-            Debug.Log("I've been hit!");
-            //RIGHT NOW THIS dmg IS HARDCODED BUT HAVE THIS REFERENCE THE SCRIPTABLE OBJECT LATER
-            TakeDamage(10);
-        }
-        else if (collision.gameObject.name == "big_Fireball(Clone)")
-        {
-            Debug.Log("I've been hit!");
-            //RIGHT NOW THIS dmg IS HARDCODED BUT HAVE THIS REFERENCE THE SCRIPTABLE OBJECT LATER HOW!!!
-            TakeDamage(25);
-        }
     }
 }

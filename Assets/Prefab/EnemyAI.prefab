@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6164731472791320802}
   m_Layer: 0
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1021986455458782372}
   m_Layer: 0
   m_Name: Enemy Projectile Point
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
