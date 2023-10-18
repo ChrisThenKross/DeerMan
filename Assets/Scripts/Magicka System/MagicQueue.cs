@@ -51,7 +51,16 @@ public class MagicQueue : MonoBehaviour
 
     public void AddSpell (string command)
     {
-        spells.Add (command);
+        if (spells.Count == 3)
+        {
+            Debug.Log("You hit the max of 3 spells! Replacing the first spell");
+            spells.RemoveAt(0);
+            spells.Add(command);
+
+        } else
+        {
+            spells.Add(command);
+        }
         UpdateQueuedSpells();
     }
 
