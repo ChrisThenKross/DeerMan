@@ -24,15 +24,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "CastSpell",
-                    "type": "PassThrough",
-                    "id": "c7092f30-128d-4dda-b772-dea7f8beca07",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "AddFireball",
                     "type": "Button",
                     "id": "d49b038f-bc70-486a-8069-60bccbb5a9dd",
@@ -138,17 +129,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5b4cced1-4de8-4615-85d3-27f17a7472ad",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CastSpell",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b5b93c43-d4d7-48c3-9fe9-c36d9d8be7e4",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -183,7 +163,7 @@
                 {
                     "name": "",
                     "id": "e530ff30-902e-41bf-9bdb-8c92f20801b1",
-                    "path": "<Keyboard>/space",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

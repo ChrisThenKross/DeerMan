@@ -46,15 +46,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""CastSpell"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""c7092f30-128d-4dda-b772-dea7f8beca07"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""AddFireball"",
                     ""type"": ""Button"",
                     ""id"": ""d49b038f-bc70-486a-8069-60bccbb5a9dd"",
@@ -160,17 +151,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5b4cced1-4de8-4615-85d3-27f17a7472ad"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CastSpell"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b5b93c43-d4d7-48c3-9fe9-c36d9d8be7e4"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
@@ -205,7 +185,7 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e530ff30-902e-41bf-9bdb-8c92f20801b1"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -222,7 +202,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_mouseLook = m_Player.FindAction("mouseLook", throwIfNotFound: true);
-        m_Player_CastSpell = m_Player.FindAction("CastSpell", throwIfNotFound: true);
         m_Player_AddFireball = m_Player.FindAction("AddFireball", throwIfNotFound: true);
         m_Player_AddIce = m_Player.FindAction("AddIce", throwIfNotFound: true);
         m_Player_AddHorn = m_Player.FindAction("AddHorn", throwIfNotFound: true);
@@ -290,7 +269,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_mouseLook;
-    private readonly InputAction m_Player_CastSpell;
     private readonly InputAction m_Player_AddFireball;
     private readonly InputAction m_Player_AddIce;
     private readonly InputAction m_Player_AddHorn;
@@ -301,7 +279,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
         public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @mouseLook => m_Wrapper.m_Player_mouseLook;
-        public InputAction @CastSpell => m_Wrapper.m_Player_CastSpell;
         public InputAction @AddFireball => m_Wrapper.m_Player_AddFireball;
         public InputAction @AddIce => m_Wrapper.m_Player_AddIce;
         public InputAction @AddHorn => m_Wrapper.m_Player_AddHorn;
@@ -321,9 +298,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @mouseLook.started += instance.OnMouseLook;
             @mouseLook.performed += instance.OnMouseLook;
             @mouseLook.canceled += instance.OnMouseLook;
-            @CastSpell.started += instance.OnCastSpell;
-            @CastSpell.performed += instance.OnCastSpell;
-            @CastSpell.canceled += instance.OnCastSpell;
             @AddFireball.started += instance.OnAddFireball;
             @AddFireball.performed += instance.OnAddFireball;
             @AddFireball.canceled += instance.OnAddFireball;
@@ -346,9 +320,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
             @mouseLook.started -= instance.OnMouseLook;
             @mouseLook.performed -= instance.OnMouseLook;
             @mouseLook.canceled -= instance.OnMouseLook;
-            @CastSpell.started -= instance.OnCastSpell;
-            @CastSpell.performed -= instance.OnCastSpell;
-            @CastSpell.canceled -= instance.OnCastSpell;
             @AddFireball.started -= instance.OnAddFireball;
             @AddFireball.performed -= instance.OnAddFireball;
             @AddFireball.canceled -= instance.OnAddFireball;
@@ -382,7 +353,6 @@ public partial class @InputManager: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
-        void OnCastSpell(InputAction.CallbackContext context);
         void OnAddFireball(InputAction.CallbackContext context);
         void OnAddIce(InputAction.CallbackContext context);
         void OnAddHorn(InputAction.CallbackContext context);
