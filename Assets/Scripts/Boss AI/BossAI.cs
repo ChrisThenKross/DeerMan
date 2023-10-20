@@ -21,7 +21,7 @@ public class BossAI : MonoBehaviour
     //attack
     public float timeBetweenAttack;
     bool alreadyAttacked;
-    BoxCollider boxCollider;
+    public BoxCollider boxCollider;
 
     //States
     public float sightRange, attackRange;
@@ -36,7 +36,7 @@ public class BossAI : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        boxCollider = GetComponentInChildren<BoxCollider>();
+        //boxCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -121,11 +121,14 @@ public class BossAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
-    private void OnCollisionEnter(Collision col)
+/*    private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
-            Debug.Log("DOUCHE!!");
+            Debug.Log("RACTHC!!!");
         }
-    }
+    }*/
+
+    // THIS DOESNT WORK!!! IT DOESN'T DETECT THE BOX COLLIDER????////
+    // I MOVED ALL THE LOGIC TO THE FREAKING ARM INSTEAD!!! HOW AWFUL!
 }

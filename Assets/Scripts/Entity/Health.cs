@@ -30,6 +30,9 @@ public class Health : MonoBehaviour
             // stops the ai from shooting
             if (this.gameObject.GetComponent<EnemyAI>() != null)
                 this.gameObject.GetComponent<EnemyAI>().enabled = false;
+            // stop player from moveing
+            if (this.gameObject.GetComponent<PlayerController>() != null)
+                this.gameObject.GetComponent<PlayerController>().enabled = false;
             // remove the healthbar
             this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
