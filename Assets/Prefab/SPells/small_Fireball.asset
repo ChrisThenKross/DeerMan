@@ -17,3 +17,5 @@ MonoBehaviour:
   Lifetime: 2
   Speed: 25
   SpellRadius: 0.5
+  SplashDamage: 1
+  SplashDamageRadius: 1

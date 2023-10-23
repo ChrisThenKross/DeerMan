@@ -37,6 +37,19 @@ public class Spell : MonoBehaviour
             if (collision.GetComponent<Health>() != null)
                 collision.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage);
         }
+
+        //splash damage (main hit above does most damage, everything below is lingering damage
+        if (SpellToCast.SplashDamage)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, SpellToCast.SplashDamageRadius);
+            foreach(Collider collider in colliders)
+            {
+                if (collider.GetComponent<Health>() != null)
+                    collider.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage - 3); // yeah so its -3 damage penalty for splash
+            }
+        }
+
+
         //Apply spell effects to object / enemy once this hits something
         //Apply sound effects and particle effects
         Destroy(this.gameObject);

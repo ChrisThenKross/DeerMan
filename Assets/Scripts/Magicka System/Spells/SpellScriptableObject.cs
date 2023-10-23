@@ -12,6 +12,8 @@ public class SpellScriptableObject : ScriptableObject
     public float Lifetime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
+    public bool SplashDamage = false;
+    public float SplashDamageRadius = 0f;
 
     //Status effects maybe
     //UI Thumbnail
