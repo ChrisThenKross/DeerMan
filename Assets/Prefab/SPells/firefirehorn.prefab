@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8519905253558170468}
   - component: {fileID: 2365690848102329118}
   - component: {fileID: 5287509463830909196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: firefirehorn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 1721614680239957167}
   - component: {fileID: 4925779466913586530}
   - component: {fileID: 8297827277915731621}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

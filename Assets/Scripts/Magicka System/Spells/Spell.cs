@@ -15,8 +15,7 @@ public class Spell : MonoBehaviour
 
     private void Awake()
     {
-        // not sure why this needs to be offset by 1 but ok
-        pierceLeft = SpellToCast.enemiesCanPierce + 1;
+        pierceLeft = SpellToCast.enemiesCanPierce;
 
         myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
@@ -58,12 +57,14 @@ public class Spell : MonoBehaviour
         //Apply sound effects and particle effects
 
         // wait should we destroy or pierce?
-        
-        if (pierceLeft == 0)
-            Destroy(this.gameObject);
-        else
+
+        if (pierceLeft > 0 && collision.tag == "Enemy")
         {
             pierceLeft--;
+        } else
+        {
+            Destroy(this.gameObject);
         }
+
     }
 }

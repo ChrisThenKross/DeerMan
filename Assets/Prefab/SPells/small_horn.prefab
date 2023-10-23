@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2067082400540244365}
   - component: {fileID: 2673683367845718856}
   - component: {fileID: 1485873243104171800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: small_horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

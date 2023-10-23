@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8856427709882208957}
   - component: {fileID: 2602944657023195641}
   - component: {fileID: 6619877401645090768}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: med_horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

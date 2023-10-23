@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1881657783479784130}
   - component: {fileID: 4970457181062738001}
   - component: {fileID: 5010228428338568453}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: big_horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
