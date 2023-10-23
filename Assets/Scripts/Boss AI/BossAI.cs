@@ -55,8 +55,8 @@ public class BossAI : MonoBehaviour
         health = GetComponent<Health>().currentHealth;
 
         if (playerInSightRange && !playerInAttackRange1) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange1 && health > 300) AttackPlayerPhaseOne();
-        if (playerInSightRange && playerInAttackRange2 && health <= 300) AttackPlayerPhaseTwo();
+        if (playerInSightRange && playerInAttackRange1 && health > 100) AttackPlayerPhaseOne();
+        if (playerInSightRange && playerInAttackRange2 && health <= 100) AttackPlayerPhaseTwo();
     }
 
 
