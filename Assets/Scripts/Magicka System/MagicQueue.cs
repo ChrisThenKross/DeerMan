@@ -15,7 +15,27 @@ public class MagicQueue : MonoBehaviour
     [SerializeField] private Spell small_fireball;
     [SerializeField] private Spell med_fireball;
     [SerializeField] private Spell big_fireball;
+    [SerializeField] private Spell small_ice;
+    [SerializeField] private Spell med_ice;
+    [SerializeField] private Spell big_ice;
+    [SerializeField] private Spell small_horn;
+    [SerializeField] private Spell med_horn;
+    [SerializeField] private Spell big_horn;
+    [SerializeField] private Spell firefirehorn;
     [SerializeField] private Spell spellToCast;
+
+    /*TODO:
+     * FIRE,FIRE,ICE
+    FIRE,FIRE,HORN done for demo
+    FIRE,ICE,ICE
+    FIRE,HORN,ICE
+    FIRE,HORN,HORN
+    HORN,ICE,ICE
+    HORN,HORN,ICE
+    FIRE,ICE
+    FIRE,HORN
+    HORN,ICE
+    */
 
     private void Awake()
     {
@@ -70,24 +90,61 @@ public class MagicQueue : MonoBehaviour
             {
                 spells.Sort();
                 string spell = string.Join(",", spells);
-                spells.Clear();
-                spellQueue.text = "Casted spell with " + spell;
                 Debug.Log(spell);
+                spells.Clear();
 
                 // instantiate whatever spell was just created
 
                 // please replace after this works
                 if (spell.Equals("fireball"))
                 {
+                    spellQueue.text = "Casted spell: small fireball";
                     Instantiate(small_fireball, castPoint.position, castPoint.rotation);
                 }
                 else if (spell.Equals("fireball,fireball"))
                 {
+                    spellQueue.text = "Casted spell: medium fireball";
                     Instantiate(med_fireball, castPoint.position, castPoint.rotation);
                 } 
                 else if (spell.Equals("fireball,fireball,fireball"))
                 {
+                    spellQueue.text = "Casted spell: large fireball";
                     Instantiate(big_fireball, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("ice"))
+                {
+                    spellQueue.text = "Casted spell: small iceball";
+                    Instantiate(small_ice, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("ice,ice"))
+                {
+                    spellQueue.text = "Casted spell: medium iceball";
+                    Instantiate(med_ice, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("ice,ice,ice"))
+                {
+                    spellQueue.text = "Casted spell: large iceball";
+                    Instantiate(big_ice, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("horn"))
+                {
+                    spellQueue.text = "Casted spell: small horn";
+                    Instantiate(small_horn, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("horn,horn"))
+                {
+                    spellQueue.text = "Casted spell: medium horn";
+                    Instantiate(med_horn, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("horn,horn,horn"))
+                {
+                    spellQueue.text = "Casted spell: large horn";
+                    Instantiate(big_horn, castPoint.position, castPoint.rotation);
+                }
+                else if (spell.Equals("fireball,fireball,horn"))
+                {
+                    spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
+                    Instantiate(firefirehorn, castPoint.position, castPoint.rotation);
                 }
             }
             else

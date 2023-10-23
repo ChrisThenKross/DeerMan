@@ -8,12 +8,12 @@ using UnityEngine;
 public class SpellScriptableObject : ScriptableObject
 {
     public float Damage = 10f;
-    public float ManaCost = 5f;
     public float Lifetime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
     public bool SplashDamage = false;
     public float SplashDamageRadius = 0f;
+    public int enemiesCanPierce = 0;
 
     //Status effects maybe
     //UI Thumbnail
