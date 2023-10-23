@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fef6f1bf9e66b4fbf57912e430f4a2, type: 3}
   m_Name: firefirehorn
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 30
   Lifetime: 2
-  Speed: 15
+  Speed: 5
   SpellRadius: 0.5
-  SplashDamage: 0
+  SplashDamage: 1
   SplashDamageRadius: 0
-  enemiesCanPierce: 0
+  enemiesCanPierce: 4
