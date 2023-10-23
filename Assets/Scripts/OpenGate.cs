@@ -22,7 +22,7 @@ public class OpenGate : MonoBehaviour {
 
             // Spawn enemies
             Vector3 basePosition = new Vector3 (0, 0.5f, 30);
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 Vector3 position = basePosition + new Vector3 (Random.Range (-5, 5), 0, Random.Range (-5, 5));
                 Instantiate (enemy, position, Quaternion.identity);
             }

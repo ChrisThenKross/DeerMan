@@ -13024,7 +13024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4121327099318750497}
   DialogueManager: {fileID: 2027860561}
-  enemy: {fileID: 0}
+  enemy: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
 --- !u!65 &2098225426
 BoxCollider:
   m_ObjectHideFlags: 0
