@@ -22,10 +22,16 @@ public class BossAI : MonoBehaviour
     public float timeBetweenAttack;
     bool alreadyAttacked;
     public BoxCollider boxCollider;
+    //phase 2 attack
+    public GameObject projectile;
+    [SerializeField] private Transform throwPoint;
+    bool spawnEnemies = true;
+    public GameObject enemy;
 
     //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, attackRangePhase1, attackRangePhase2;
+    public bool playerInSightRange, playerInAttackRange1, playerInAttackRange2;
+    private int health;
 
     private void Awake()
     {
@@ -43,26 +49,16 @@ public class BossAI : MonoBehaviour
     {
         //check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInAttackRange1 = Physics.CheckSphere(transform.position, attackRangePhase1, whatIsPlayer);
+        playerInAttackRange2 = Physics.CheckSphere(transform.position, attackRangePhase2, whatIsPlayer);
+        // get current health to indicate what phase its in
+        health = GetComponent<Health>().currentHealth;
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (playerInSightRange && !playerInAttackRange1) ChasePlayer();
+        if (playerInSightRange && playerInAttackRange1 && health > 300) AttackPlayerPhaseOne();
+        if (playerInSightRange && playerInAttackRange2 && health <= 300) AttackPlayerPhaseTwo();
     }
 
-    private void Patroling()
-    {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
 
     private void SearchWalkPoint()
     {
@@ -83,7 +79,7 @@ public class BossAI : MonoBehaviour
         agent.SetDestination(player.position);
     }
 
-    private void AttackPlayer()
+    private void AttackPlayerPhaseOne()
     {
         //Make surer enemy doesn't move
         agent.SetDestination(transform.position);
@@ -93,6 +89,7 @@ public class BossAI : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 25f * Time.deltaTime);
 
+        //This will count as the attack, since theres a hitbox here
         animator.SetTrigger("Attack");
 
 
@@ -101,6 +98,45 @@ public class BossAI : MonoBehaviour
             //Animation is already going so we are just going to detect collision
             //Attack code here
             // see ontriggerenter
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), 0);
+        }
+    }
+
+    private void AttackPlayerPhaseTwo()
+    {
+        //Make surer enemy doesn't move
+        agent.SetDestination(transform.position);
+
+        //transform.LookAt(player);
+        Vector3 direction = player.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 25f * Time.deltaTime);
+
+        //This will count as the attack, since theres a hitbox here
+        //animator.SetTrigger("Attack");
+
+        // Spawn enemies
+        Vector3 basePosition = transform.position;
+        if (spawnEnemies)
+        {
+            spawnEnemies = false;
+            for (int i = 0; i < 5; i++)
+            {
+                Vector3 position = basePosition + new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+                Instantiate(enemy, position, Quaternion.identity);
+            }
+        }    
+
+
+
+        if (!alreadyAttacked)
+        {
+            //Animation is already going so we are just going to detect collision
+            //Attack code here
+            Rigidbody rb = Instantiate(projectile, throwPoint.position, throwPoint.rotation).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttack);
@@ -113,21 +149,23 @@ public class BossAI : MonoBehaviour
     }
 
 
-/*    private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRangePhase1);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRangePhase2);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
-    }*/
+    }
 
-/*    private void OnTriggerEnter(Collider col)
-    {
-        if (col.CompareTag("Player"))
+    /*    private void OnTriggerEnter(Collider col)
         {
-            Debug.Log("RACTHC!!!");
-        }
-    }*/
+            if (col.CompareTag("Player"))
+            {
+                Debug.Log("RACTHC!!!");
+            }
+        }*/
 
     // THIS DOESNT WORK!!! IT DOESN'T DETECT THE BOX COLLIDER????////
     // I MOVED ALL THE LOGIC TO THE FREAKING ARM INSTEAD!!! HOW AWFUL!

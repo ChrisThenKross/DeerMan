@@ -33,7 +33,6 @@ public class Spell : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Debug.Log("hello");
             // damage the enemy based on the damage
             if (collision.GetComponent<Health>() != null)
                 collision.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage);
