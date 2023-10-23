@@ -26,6 +26,8 @@ public class OpenGate : MonoBehaviour {
                 Vector3 position = basePosition + new Vector3 (Random.Range (-5, 5), 0, Random.Range (-5, 5));
                 Instantiate (enemy, position, Quaternion.identity);
             }
+
+            GameObject.Find("EventSystem").GetComponent<EnemyEncounter>().enabled = true;
         }
     }
 }

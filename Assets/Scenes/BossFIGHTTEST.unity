@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &91934777
 Transform:
   m_ObjectHideFlags: 0
@@ -364,11 +364,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: sightRange
+      value: -9.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: attackRange
+      value: -4.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394164376742836648, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1095,19 +1111,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269014130271145738, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5269014130271145738, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5269014130271145738, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_Name
       value: Giant Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7898854827582772706, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1172,11 +1192,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: sightRange
+      value: -9.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: attackRange
+      value: -4.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394164376742836648, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1241,11 +1277,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2109479566293899236, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: sightRange
+      value: -9.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: attackRange
+      value: -4.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165301761662666782, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394164376742836648, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
       propertyPath: m_LocalPosition.x

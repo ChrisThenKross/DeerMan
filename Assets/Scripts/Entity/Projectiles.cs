@@ -16,7 +16,7 @@ public class Projectiles : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-         Debug.Log("Gotcha bitch!");
+         Debug.Log("Gotcha!");
          //damage the enemy based on the damage
          if (collision.gameObject.GetComponent<Health>() != null)
         collision.gameObject.GetComponent<Health>().TakeDamage(damage);
