@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: small_Fireball
   m_EditorClassIdentifier: 
   Damage: 6
-  ManaCost: 5
   Lifetime: 2
   Speed: 25
   SpellRadius: 0.5
   SplashDamage: 1
   SplashDamageRadius: 1
+  enemiesCanPierce: 0
+  onHitFX: {fileID: 736375887137213838, guid: fabaa3ba1a7268547b3ff21cb4e01a39, type: 3}
+  knockback: 1
+  knockbackForce: 0
+  knockbackRadius: 0

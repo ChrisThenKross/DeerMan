@@ -14,6 +14,10 @@ public class SpellScriptableObject : ScriptableObject
     public bool SplashDamage = false;
     public float SplashDamageRadius = 0f;
     public int enemiesCanPierce = 0;
+    public GameObject onHitFX;
+    public bool knockback = false;
+    public float knockbackForce = 0f;
+    public float knockbackRadius = 0f;
 
     //Status effects maybe
     //UI Thumbnail

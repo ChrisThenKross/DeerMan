@@ -52,18 +52,35 @@ public class Spell : MonoBehaviour
             }
         }
 
-
-        //Apply spell effects to object / enemy once this hits something
-        //Apply sound effects and particle effects
-
         // wait should we destroy or pierce?
-
         if (pierceLeft > 0 && collision.tag == "Enemy")
         {
             pierceLeft--;
         } else
         {
             Destroy(this.gameObject);
+        }
+
+        //Apply spell effects on hit (explosion, etc)
+        if (SpellToCast.onHitFX != null)
+        {
+            GameObject fx = Instantiate(SpellToCast.onHitFX, transform.position, Quaternion.identity);
+            Destroy(fx, 1.5f);
+        }
+
+        //Knockback
+        if (SpellToCast.knockback)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, SpellToCast.knockbackRadius);
+
+            foreach (Collider nearby in colliders)
+            {
+                Rigidbody rig = nearby.GetComponent<Rigidbody>();
+                if (rig != null)
+                {
+                    rig.AddExplosionForce(SpellToCast.knockbackForce, transform.position, SpellToCast.knockbackRadius);
+                }
+            }
         }
 
     }
