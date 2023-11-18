@@ -455,6 +455,14 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.7325889
       objectReference: {fileID: 0}
+    - target: {fileID: 2375611075432316360, guid: 07973f78908194d8f99c3e1bf8d78480, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2375611075432316360, guid: 07973f78908194d8f99c3e1bf8d78480, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6165580477429112548, guid: 07973f78908194d8f99c3e1bf8d78480, type: 3}
       propertyPath: m_Mass
       value: 1000
