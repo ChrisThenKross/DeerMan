@@ -74,10 +74,9 @@ public class BusAI : MonoBehaviour
         int i = 0;
         //while (Vector3.Distance(transform.position,target) > 10f)
         // this is beyonndddddd scuffed idk how coroutines really work
-        while (i < 1000)
+        while (i < 750)
         {
             i++;
-            Debug.Log(i);
             transform.position = Vector3.MoveTowards(transform.position, target, 50f * Time.deltaTime);
             yield return null;
         }
