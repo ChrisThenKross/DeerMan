@@ -767,6 +767,10 @@ PrefabInstance:
       value: 21.45
       objectReference: {fileID: 0}
     - target: {fileID: 1348566172358354053, guid: 07973f78908194d8f99c3e1bf8d78480, type: 3}
+      propertyPath: BladeAnimator
+      value: 
+      objectReference: {fileID: 708140175}
+    - target: {fileID: 1348566172358354053, guid: 07973f78908194d8f99c3e1bf8d78480, type: 3}
       propertyPath: walkPointRange
       value: 0
       objectReference: {fileID: 0}
