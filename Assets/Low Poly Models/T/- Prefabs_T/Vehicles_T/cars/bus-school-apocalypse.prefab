@@ -319,7 +319,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 1.04
   timeBetweenAttack: 0
-  boxCollider: {fileID: 0}
+  attackIndicator: {fileID: 0}
   sightRange: 12.02
   attackRangePhase1: 4.1
   attackRangePhase2: 0

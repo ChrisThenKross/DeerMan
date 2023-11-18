@@ -11,7 +11,8 @@ public class BusAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    Animator animator;
+    public Animator MinigunAnimator;
+    public Animator BladeAnimator;
 
     //patroling
     public Vector3 walkPoint;
@@ -22,12 +23,15 @@ public class BusAI : MonoBehaviour
     public float timeBetweenAttack;
     private bool alreadyAttacked = true;
     private bool attacking = false;
+    private bool PhaseTransition = false;
     Rigidbody rb;
     public GameObject attackIndicator;
 
     //States
-    public float sightRange, attackRangePhase1, attackRangePhase2;
-    public bool playerInSightRange, playerInAttackRange1, playerInAttackRange2;
+    public float chargeRange;
+    public float tooClose;
+    public bool playerInChargeRange;
+    public bool RangeTooClose;
     private int health;
 
     private void Awake()
@@ -38,23 +42,24 @@ public class BusAI : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-   
     }
 
     private void Update()
     {
-        //check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange1 = Physics.CheckSphere(transform.position, attackRangePhase1, whatIsPlayer);
-        playerInAttackRange2 = Physics.CheckSphere(transform.position, attackRangePhase2, whatIsPlayer);
+        playerInChargeRange = Physics.CheckSphere(transform.position, chargeRange, whatIsPlayer);
+        RangeTooClose = Physics.CheckSphere(transform.position, tooClose, whatIsPlayer);
         // get current health to indicate what phase its in
         health = GetComponent<Health>().currentHealth;
 
-        if (playerInSightRange && !playerInAttackRange1 && alreadyAttacked) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange1 && alreadyAttacked) ChasePlayer(); //moving while cooldown
-        if (playerInSightRange && playerInAttackRange1 && !attacking) StartCoroutine(ChargedAttack());
+        //Phase 1 Charged Attack
+        if (!playerInChargeRange && alreadyAttacked && health>=2500) ChasePlayer();
+        if (playerInChargeRange && alreadyAttacked && health >= 2500) ChasePlayer(); //moving while cooldown
+        if (playerInChargeRange && !attacking && health >= 2500) StartCoroutine(ChargedAttack());
+        //Phase 2 Charged Attack & Turret
+        if (health < 2500 & !PhaseTransition) StartCoroutine(NextPhase());
+        if (health < 2500 & PhaseTransition & !RangeTooClose) ChasePlayer();
+        if (health < 2500 & PhaseTransition & RangeTooClose) StartCoroutine(SpinAttackment(2));
     }
 
 
@@ -91,12 +96,31 @@ public class BusAI : MonoBehaviour
 
     }
 
-    private void ChargeAttack()
+    IEnumerator NextPhase()
     {
-        alreadyAttacked = false;
-        transform.LookAt(player);
         agent.ResetPath();
+        MinigunAnimator.SetTrigger("ActivateMinigun");
+        yield return new WaitForSeconds(2);
+        PhaseTransition = true;
     }
+
+    IEnumerator SpinAttackment(float duration)
+    {
+        agent.ResetPath();
+        BladeAnimator.SetTrigger("BladeGo");
+        float startRotation = transform.eulerAngles.y;
+        float endRotation = startRotation + 360.0f;
+        float t = 0.0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float yRotation = Mathf.Lerp(startRotation, endRotation, t / duration) % 360.0f;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+            yield return null;
+        }
+        BladeAnimator.SetTrigger("BladeNo");
+    }
+
 
 
     private void SearchWalkPoint()
@@ -125,9 +149,9 @@ public class BusAI : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRangePhase1);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, chargeRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, tooClose);
     }
 
     private void OnCollisionEnter(Collision collision)
