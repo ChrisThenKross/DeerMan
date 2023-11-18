@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : Entity
 {
     public NavMeshAgent agent;
 
@@ -34,8 +34,9 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
     }
 

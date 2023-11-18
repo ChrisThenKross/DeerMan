@@ -30,8 +30,11 @@ public class MapGenerator : MonoBehaviour {
             // Stop timer
             watch.Stop ();
             Debug.Log ($"Generated map in {watch.ElapsedMilliseconds}ms");
-
         }
+
+        // Keep enemies spawned
+        MainMapGameManager gameManager = GetComponent<MainMapGameManager> ();
+        gameManager.UpdateEnemies (map);
     }
 
     // void OnValidate () {

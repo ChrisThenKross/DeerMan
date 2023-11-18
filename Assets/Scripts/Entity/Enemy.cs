@@ -29,7 +29,7 @@ public class Enemy : Entity {
     public float directionDelta = 1f;
 
     // Start is called before the first frame update
-    protected override void Start () {
+    public override void Start () {
         base.Start ();
 
         aiMode = AI_MODE.IDLE;

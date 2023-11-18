@@ -12,11 +12,16 @@ public class Health : MonoBehaviour
     Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         currentHealth = maxHealth;
-        healthBar.value = maxHealth;
+        // healthBar.value = maxHealth;
         animator = GetComponent<Animator>();
+    }
+
+    public virtual void Update()
+    {
+        healthBar.value = currentHealth;
     }
 
     public void TakeDamage(int damage)
@@ -40,5 +45,10 @@ public class Health : MonoBehaviour
             Destroy(gameObject,3);
         }
         healthBar.value = currentHealth;
+    }
+
+    public bool IsDead()
+    {
+        return currentHealth <= 0;
     }
 }

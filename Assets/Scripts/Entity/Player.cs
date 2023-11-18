@@ -11,7 +11,7 @@ public class PlayerControl : Entity {
         move = context.ReadValue<Vector2> ();
     }
 
-    protected override void Start () {
+    public override void Start () {
         base.Start ();
     }
 

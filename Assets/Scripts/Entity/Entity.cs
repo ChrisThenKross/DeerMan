@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof (Health))]
-public class Entity : MonoBehaviour {
+public class Entity : Health {
     // public int maxHealth = 100;
     // public int currentHealth;
-    protected virtual void Start () {
+    public override void Start () {
+        base.Start();
         //     currentHealth = maxHealth;
         //     healthBar.SetMaxHealth (maxHealth);
     }
