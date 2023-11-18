@@ -34,7 +34,7 @@ public class MapGenerator : MonoBehaviour {
 
         // Keep enemies spawned
         MainMapGameManager gameManager = GetComponent<MainMapGameManager> ();
-        gameManager.UpdateEnemies (map);
+        gameManager.UpdateEnemies (map, squareSize);
     }
 
     // void OnValidate () {

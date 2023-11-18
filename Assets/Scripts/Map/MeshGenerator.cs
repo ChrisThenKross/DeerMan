@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 [RequireComponent (typeof (MeshFilter))]
@@ -81,6 +82,10 @@ public class MeshGenerator : MonoBehaviour {
         playerpos3.z -= map.GetLength (1) * squareSize / 2f;
 
         Player.transform.position = playerpos3;
+
+        // Bake NavMesh
+        NavMeshSurface navMesh = floor.GetComponent<NavMeshSurface> ();
+        navMesh.BuildNavMesh ();
     }
 
     void GenerateMeshCollider (Mesh mesh) {

@@ -44,6 +44,7 @@ public class Health : MonoBehaviour
             //remove the object
             Destroy(gameObject,3);
         }
+        
         healthBar.value = currentHealth;
     }
 

@@ -13,7 +13,7 @@ public class MainMapGameManager : MonoBehaviour
         enemies = new GameObject[MaxEnemyCount];
     }
 
-    public void UpdateEnemies(int[,] map){
+    public void UpdateEnemies(int[,] map, float squareSize){
         for(int i = 0; i < enemies.Length; i++){
             if(enemies[i] != null && enemies[i].GetComponent<EnemyAI>().IsDead()){
                 Destroy(enemies[i]);
@@ -22,22 +22,26 @@ public class MainMapGameManager : MonoBehaviour
 
             if(enemies[i] == null){
                 Debug.Log("Spawning enemy " + i);
-                int x, y;
-                GetRandomValidPosition(map, out x, out y);
-                enemies[i] = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                float x, z;
+                GetRandomValidPosition(map, squareSize, out x, out z);
+                enemies[i] = Instantiate(enemyPrefab, new Vector3(x, .5f, z), Quaternion.identity);
             }
         }
     }
 
-    private void GetRandomPosition(int[,] map, out int x, out int y){
+    private void GetRandomPosition(int[,] map, out float x, out float z){
         x = Random.Range(0, map.GetLength(0));
-        y = Random.Range(0, map.GetLength(1));
+        z = Random.Range(0, map.GetLength(1));
     }
 
-    private void GetRandomValidPosition(int[,] map, out int x, out int y){
-        GetRandomPosition(map, out x, out y);
-        while(map[x,y] != 0){
-            GetRandomPosition(map, out x, out y);
+    private void GetRandomValidPosition(int[,] map, float squareSize, out float x, out float z){
+        GetRandomPosition(map, out x, out z);
+        while(map[(int)x,(int)z] != 0){
+            GetRandomPosition(map, out x, out z);
         }
+
+        // Center position over center of maze
+        x -= map.GetLength(0) * squareSize / 2f;
+        z -= map.GetLength(1) * squareSize / 2f;
     }
 }
