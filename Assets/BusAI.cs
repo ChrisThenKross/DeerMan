@@ -65,13 +65,26 @@ public class BusAI : MonoBehaviour
         agent.ResetPath();
         attackIndicator.SetActive(true);
         attacking = true;
+        Debug.Log(player.position);
+        Vector3 target = (player.position + (player.position - transform.position));
         yield return new WaitForSeconds(1);
         Debug.Log("I have waited! CHARGE!!!!");
         attackIndicator.SetActive(false);
-        rb.isKinematic = false;
-        rb.AddForce(transform.forward * 62000, ForceMode.Impulse);
+        /*while (target != transform.position)*/
+        int i = 0;
+        //while (Vector3.Distance(transform.position,target) > 10f)
+        // this is beyonndddddd scuffed idk how coroutines really work
+        while (i < 1000)
+        {
+            i++;
+            Debug.Log(i);
+            transform.position = Vector3.MoveTowards(transform.position, target, 50f * Time.deltaTime);
+            yield return null;
+        }
+        //rb.isKinematic = false;
+        //rb.AddForce(transform.forward * 62000, ForceMode.Impulse);
         yield return new WaitForSeconds(2);
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
         alreadyAttacked = true;
         yield return new WaitForSeconds(10);
         Debug.Log("Done! Can attack again");
