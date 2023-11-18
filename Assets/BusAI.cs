@@ -59,7 +59,7 @@ public class BusAI : MonoBehaviour
         //Phase 2 Charged Attack & Turret
         if (health < 2500 & !PhaseTransition) StartCoroutine(NextPhase());
         if (health < 2500 & PhaseTransition & !RangeTooClose) ChasePlayer();
-        if (health < 2500 & PhaseTransition & RangeTooClose) StartCoroutine(SpinAttackment(2));
+        if (health < 2500 & PhaseTransition & RangeTooClose) SpinAttack();
     }
 
 
@@ -104,10 +104,15 @@ public class BusAI : MonoBehaviour
         PhaseTransition = true;
     }
 
+    private void SpinAttack()
+    {
+        BladeAnimator.SetTrigger("BladeGo");
+        StartCoroutine(SpinAttackment(2));
+    }
+
     IEnumerator SpinAttackment(float duration)
     {
         agent.ResetPath();
-        BladeAnimator.SetTrigger("BladeGo");
         float startRotation = transform.eulerAngles.y;
         float endRotation = startRotation + 360.0f;
         float t = 0.0f;
@@ -118,7 +123,6 @@ public class BusAI : MonoBehaviour
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
             yield return null;
         }
-        BladeAnimator.SetTrigger("BladeNo");
     }
 
 
@@ -143,6 +147,7 @@ public class BusAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        BladeAnimator.SetTrigger("BladeNo");
         agent.SetDestination(player.position);
     }
 
