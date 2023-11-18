@@ -19,10 +19,10 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public virtual void Update()
-    {
-        healthBar.value = currentHealth;
-    }
+    // public virtual void Update()
+    // {
+    //     healthBar.value = currentHealth;
+    // }
 
     public void TakeDamage(int damage)
     {

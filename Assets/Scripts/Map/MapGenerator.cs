@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+public enum TileType {
+    Wall = 0,
+    Floor = 1,
+    Passage = 2
+}
+
 public class MapGenerator : MonoBehaviour {
     public int width = 70;
     public int height = 40;
@@ -16,7 +22,7 @@ public class MapGenerator : MonoBehaviour {
     [Range (0, 100)]
     public int randomFillPercent = 50;
 
-    int[, ] map;
+    TileType[, ] map;
 
     void Start () {
         GenerateMap ();
@@ -42,14 +48,14 @@ public class MapGenerator : MonoBehaviour {
     // }
 
     void GenerateMap () {
-        map = new int[width, height];
+        map = new TileType[width, height];
         RandomFillMap ();
 
         for (int i = 0; i < smoothSteps; i++) {
             SmoothMap ();
         }
 
-        int[, ] borderedMap = new int[width + borderSize * 2, height + borderSize * 2];
+        TileType[, ] borderedMap = new TileType[width + borderSize * 2, height + borderSize * 2];
         for (int i = 0; i < borderedMap.GetLength (0); i++) {
             for (int j = 0; j < borderedMap.GetLength (1); j++) {
                 if (i >= borderSize && i < width + borderSize && j >= borderSize && j < height + borderSize) {
@@ -57,7 +63,7 @@ public class MapGenerator : MonoBehaviour {
                     continue;
                 }
 
-                borderedMap[i, j] = 1;
+                borderedMap[i, j] = TileType.Wall;
             }
         }
 
@@ -77,9 +83,9 @@ public class MapGenerator : MonoBehaviour {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-                    map[x, y] = 1;
+                    map[x, y] = TileType.Wall;
                 } else {
-                    map[x, y] = (pseudoRandom.Next (0, 100) < randomFillPercent) ? 1 : 0;
+                    map[x, y] = (pseudoRandom.Next (0, 100) < randomFillPercent) ? TileType.Wall : TileType.Floor;
                 }
             }
         }
@@ -91,7 +97,7 @@ public class MapGenerator : MonoBehaviour {
             for (int neighbourY = gridY - 1; neighbourY <= gridY + 1; neighbourY++) {
                 if (neighbourX >= 0 && neighbourX < width && neighbourY >= 0 && neighbourY < height) {
                     if (neighbourX != gridX || neighbourY != gridY) {
-                        wallCount += map[neighbourX, neighbourY];
+                        wallCount += map[neighbourX, neighbourY] == TileType.Wall ? 1 : 0;
                     }
                 } else {
                     wallCount++;
@@ -109,15 +115,15 @@ public class MapGenerator : MonoBehaviour {
                 int neighbourWallTiles = GetSurroundingWallCount (x, y);
 
                 if (neighbourWallTiles > 4)
-                    map[x, y] = 1;
+                    map[x, y] = TileType.Wall;
                 else if (neighbourWallTiles < 4)
-                    map[x, y] = 0;
+                    map[x, y] = TileType.Floor;
 
             }
         }
     }
 
-    void ConnectRegions (int[, ] map) {
+    void ConnectRegions (TileType[, ] map) {
         // Use flood fill to find all the regions
         bool[, ] visited = new bool[map.GetLength (0), map.GetLength (1)];
         List<Region> regions = new List<Region> ();
@@ -182,12 +188,13 @@ public class MapGenerator : MonoBehaviour {
         }
     }
 
-    void FloodFill (int[, ] map, bool[, ] visited, int x, int y, Region region) {
+    void FloodFill (TileType[, ] map, bool[, ] visited, int x, int y, Region region) {
         if (x < 0 || y < 0 || x >= map.GetLength (0) || y >= map.GetLength (1)) {
             return;
         }
 
-        if (visited[x, y] || map[x, y] != 0) {
+        // Add all non wall tiles to this region
+        if (visited[x, y] || map[x, y] != TileType.Wall) {
             return;
         }
 
@@ -254,18 +261,18 @@ class Region {
         edgeTiles = new List<Tile> ();
     }
 
-    public void AddTile (Tile tile, int[, ] map) {
+    public void AddTile (Tile tile, TileType[, ] map) {
         tiles.Add (tile);
 
         int x = tile.x;
         int y = tile.y;
 
-        int up = map[x, y + 1];
-        int down = map[x, y - 1];
-        int left = map[x - 1, y];
-        int right = map[x + 1, y];
+        bool upWall = y < map.GetLength (1) - 1 && map[x, y + 1] == TileType.Wall;
+        bool downWall = y > 0 && map[x, y - 1] == TileType.Wall;
+        bool leftWall = x > 0 && map[x - 1, y] == TileType.Wall;
+        bool rightWall = x < map.GetLength (0) - 1 && map[x + 1, y] == TileType.Wall;
 
-        if (up == 1 || down == 1 || left == 1 || right == 1) {
+        if (upWall || downWall || leftWall || rightWall) {
             edgeTiles.Add (tile);
         }
     }
@@ -290,7 +297,7 @@ class RegionConnection {
     public Tile bTile;
     public int dist;
 
-    public void Connect (int[, ] map, int r, int width, int height) {
+    public void Connect (TileType[, ] map, int r, int width, int height) {
         List<Tile> line = GetLine ();
 
         // Make a wider path
@@ -302,7 +309,7 @@ class RegionConnection {
 
                     if (xx <= 0 || yy <= 0 || xx >= width || yy >= height) continue;
 
-                    map[xx, yy] = -1;
+                    map[xx, yy] = TileType.Passage;
                 }
             }
         }

@@ -17,7 +17,7 @@ public class MeshGenerator : MonoBehaviour {
     public GameObject floor;
     public GameObject Player;
 
-    int[, ] map;
+    TileType[, ] map;
 
     public float wallHeight = 1;
     public float radius = 1;
@@ -30,7 +30,7 @@ public class MeshGenerator : MonoBehaviour {
     }
 
     //TODO: Add floor mesh
-    public void GenerateMesh (int[, ] map, float squareSize) {
+    public void GenerateMesh (TileType[, ] map, float squareSize) {
         // Move this object up by the wall height
         // Its easier to make a floor than a ceiling
         transform.position = new Vector3 (0, wallHeight, 0);
@@ -102,7 +102,7 @@ public class MeshGenerator : MonoBehaviour {
                 int x = (int) pos.x + i;
                 int y = (int) pos.y + j;
                 if (x >= 0 && x < map.GetLength (0) && y >= 0 && y < map.GetLength (1)) {
-                    if (map[x, y] == 1) {
+                    if (map[x, y] == TileType.Wall) {
                         return false;
                     }
                 }
@@ -270,7 +270,7 @@ public class MeshGenerator : MonoBehaviour {
             int mapX = (int) candidate.x;
             int mapY = (int) candidate.y;
             if (mapX >= 0 && mapX < map.GetLength (0) && mapY >= 0 && mapY < map.GetLength (1)) {
-                if (map[mapX, mapY] == 1) {
+                if (map[mapX, mapY] == TileType.Wall) {
                     return false;
                 }
             }
@@ -334,7 +334,7 @@ public class MeshGenerator : MonoBehaviour {
     public class SquareGrid {
         public Square[, ] squares;
 
-        public SquareGrid (int[, ] map, float squareSize) {
+        public SquareGrid (TileType[, ] map, float squareSize) {
             int nodeCountX = map.GetLength (0);
             int nodeCountY = map.GetLength (1);
             float mapWidth = nodeCountX * squareSize;
@@ -345,7 +345,7 @@ public class MeshGenerator : MonoBehaviour {
             for (int x = 0; x < nodeCountX; x++) {
                 for (int y = 0; y < nodeCountY; y++) {
                     Vector3 pos = new Vector3 (-mapWidth / 2 + x * squareSize + squareSize / 2, 0, -mapHeight / 2 + y * squareSize + squareSize / 2);
-                    controlNodes[x, y] = new ControlNode (pos, map[x, y] == 1, squareSize);
+                    controlNodes[x, y] = new ControlNode (pos, map[x, y] == TileType.Wall, squareSize);
                 }
             }
 
