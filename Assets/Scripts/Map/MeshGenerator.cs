@@ -12,17 +12,16 @@ public class MeshGenerator : MonoBehaviour {
     List<Vector3> vertices;
     List<int> triangles;
 
-    List<GameObject> trees = new List<GameObject> ();
+    public List<GameObject> environmentObjects = new();
 
     // Object to instantiate
-    public GameObject tree;
     public GameObject floor;
     public GameObject Player;
 
     TileType[, ] map;
 
     public float wallHeight = 1;
-    public float radius = 1;
+    public float PoissonRadius = 10;
     private float squareSize = 1;
 
     void OnValidate () {
@@ -40,11 +39,10 @@ public class MeshGenerator : MonoBehaviour {
         this.map = map;
         this.squareSize = squareSize;
 
-        ResetTrees ();
-
         GenerateWalls();
         ReserVertexIndecies();
         GenerateFloor();
+        DistributeTrees ();
 
         watch.Stop ();
         Debug.Log ($"Generated mesh with {vertices.Count} vertices and {triangles.Count / 3} triangles in {watch.ElapsedMilliseconds}ms");
@@ -75,8 +73,6 @@ public class MeshGenerator : MonoBehaviour {
         for (int x = 0; x < squareGrid.squares.GetLength (0); x++)
             for (int y = 0; y < squareGrid.squares.GetLength (1); y++)
                 TriangulateSquare (squareGrid.squares[x, y], false);
-
-        DistributeTrees ();
 
         Mesh mesh = new()
         {
@@ -144,14 +140,6 @@ public class MeshGenerator : MonoBehaviour {
         }
 
         return true;
-    }
-
-    void ResetTrees () {
-        foreach (GameObject tree in trees) {
-            Destroy (tree);
-        }
-
-        trees.Clear ();
     }
 
     void TriangulateSquare (Square square, bool invert) {
@@ -245,9 +233,10 @@ public class MeshGenerator : MonoBehaviour {
     }
 
     void DistributeTrees () {
-        List<Vector2> points = PoissonDiscSampling (30);
+        List<Vector2> points = PoissonDiscSampling (100);
 
         foreach (Vector2 point in points) {
+            Debug.Log($"Point: {point}");
             Vector3 pos = new Vector3 (point.x, 0, point.y);
             pos *= squareSize;
             // pos += Vector3.up * 0.5f;
@@ -257,21 +246,17 @@ public class MeshGenerator : MonoBehaviour {
             pos.z -= map.GetLength (1) * squareSize / 2f;
             // pos.y -= wallHeight;
 
-            GameObject treeInstance = Instantiate (tree, pos, Quaternion.identity);
-            treeInstance.transform.parent = transform;
-            treeInstance.transform.localScale = Vector3.one * squareSize;
+            GameObject objectToSpawn = environmentObjects[UnityEngine.Random.Range (0, environmentObjects.Count)];
+            GameObject instance = Instantiate (objectToSpawn, pos, Quaternion.identity);
 
-            trees.Add (treeInstance);
+            instance.transform.parent = transform;
+            instance.transform.localScale = Vector3.one * squareSize;
         }
     }
 
     List<Vector2> PoissonDiscSampling (int attempts = 30) {
-        float cellSize = radius / Mathf.Sqrt (2);
-        Debug.Log ($"cellSize: {cellSize}");
-
+        float cellSize = PoissonRadius / Mathf.Sqrt (2);
         int[, ] grid = new int[Mathf.CeilToInt (squareGrid.squares.GetLength (0) / cellSize), Mathf.CeilToInt (squareGrid.squares.GetLength (1) / cellSize)];
-
-        Debug.Log ($"grid: {grid.GetLength(0)}, {grid.GetLength(1)}");
 
         List<Vector2> points = new List<Vector2> ();
         List<Vector2> spawnPoints = new List<Vector2> ();
@@ -285,9 +270,9 @@ public class MeshGenerator : MonoBehaviour {
             for (int i = 0; i < attempts; i++) {
                 float angle = UnityEngine.Random.value * Mathf.PI * 2;
                 Vector2 dir = new Vector2 (Mathf.Sin (angle), Mathf.Cos (angle));
-                Vector2 candidate = spawnCentre + dir * UnityEngine.Random.Range (radius, 2 * radius);
+                Vector2 candidate = spawnCentre + dir * UnityEngine.Random.Range (PoissonRadius, 2 * PoissonRadius);
 
-                if (IsValid (candidate, cellSize, radius, points, grid)) {
+                if (IsValid (candidate, cellSize, points, grid)) {
                     points.Add (candidate);
                     spawnPoints.Add (candidate);
                     grid[(int) (candidate.x / cellSize), (int) (candidate.y / cellSize)] = points.Count;
@@ -304,7 +289,7 @@ public class MeshGenerator : MonoBehaviour {
         return points;
     }
 
-    bool IsValid (Vector2 candidate, float cellSize, float radius, List<Vector2> points, int[, ] grid) {
+    bool IsValid (Vector2 candidate, float cellSize, List<Vector2> points, int[, ] grid) {
         if (candidate.x >= 0 && candidate.x < squareGrid.squares.GetLength (0) && candidate.y >= 0 && candidate.y < squareGrid.squares.GetLength (1)) {
             int cellX = (int) (candidate.x / cellSize);
             int cellY = (int) (candidate.y / cellSize);
@@ -328,7 +313,7 @@ public class MeshGenerator : MonoBehaviour {
                     int pointIndex = grid[x, y] - 1;
                     if (pointIndex != -1) {
                         float sqrDst = (candidate - points[pointIndex]).sqrMagnitude;
-                        if (sqrDst < radius * radius) {
+                        if (sqrDst < PoissonRadius * PoissonRadius) {
                             return false;
                         }
                     }
