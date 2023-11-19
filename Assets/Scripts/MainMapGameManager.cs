@@ -35,7 +35,23 @@ public class MainMapGameManager : MonoBehaviour
 
     private void GetRandomValidPosition(TileType[,] map, float squareSize, out float x, out float z){
         GetRandomPosition(map, out x, out z);
-        while(map[(int)x,(int)z] != 0){
+        System.Func<Vector2, bool> checkValid = (Vector2 pos) =>       {
+            for (int i = -1; i <= 1; i++){
+                for (int j = -1; j <= 1; j++){
+                    int x = (int)pos.x + i;
+                    int y = (int)pos.y + j;
+                    if (x >= 0 && x < map.GetLength(0) && y >= 0 && y < map.GetLength(1)){
+                        if (map[x, y] == TileType.Wall){
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        };
+
+        while(!checkValid(new Vector2(x, z))){
             GetRandomPosition(map, out x, out z);
         }
 

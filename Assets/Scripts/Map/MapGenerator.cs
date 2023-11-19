@@ -176,8 +176,8 @@ public class MapGenerator : MonoBehaviour {
             mst.Add (dists[minI - 1, minJ - 1]);
 
             // Draw debug line to start and end of path
-            var rc = dists[minI - 1, minJ - 1];
-            Debug.DrawLine (TileWorldPos (rc.aTile), TileWorldPos (rc.bTile), Color.red, 10000f);
+            // var rc = dists[minI - 1, minJ - 1];
+            // Debug.DrawLine (TileWorldPos (rc.aTile), TileWorldPos (rc.bTile), Color.red, 10000f);
         }
         watch.Stop ();
         Debug.Log ($"Generated MST in {watch.ElapsedMilliseconds}ms");

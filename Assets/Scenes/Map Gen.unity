@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85aae265f85533b4c8c501b417a9c84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxEnemyCount: 20
+  MaxEnemyCount: 100
   enemyPrefab: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
