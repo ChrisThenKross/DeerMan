@@ -131,7 +131,7 @@ public class MapGenerator : MonoBehaviour {
         var watch = System.Diagnostics.Stopwatch.StartNew ();
         for (int x = 0; x < map.GetLength (0); x++) {
             for (int y = 0; y < map.GetLength (1); y++) {
-                if (!visited[x, y] && map[x, y] == 0) {
+                if (!visited[x, y] && map[x, y] != TileType.Wall) {
                     Region region = new Region (regions.Count + 1);
                     FloodFill (map, visited, x, y, region);
                     regions.Add (region);
@@ -176,8 +176,8 @@ public class MapGenerator : MonoBehaviour {
             mst.Add (dists[minI - 1, minJ - 1]);
 
             // Draw debug line to start and end of path
-            // var rc = dists[minI - 1, minJ - 1];
-            // Debug.DrawLine (TileWorldPos (rc.aTile), TileWorldPos (rc.bTile), Color.red, 5f);
+            var rc = dists[minI - 1, minJ - 1];
+            Debug.DrawLine (TileWorldPos (rc.aTile), TileWorldPos (rc.bTile), Color.red, 10000f);
         }
         watch.Stop ();
         Debug.Log ($"Generated MST in {watch.ElapsedMilliseconds}ms");
@@ -194,7 +194,7 @@ public class MapGenerator : MonoBehaviour {
         }
 
         // Add all non wall tiles to this region
-        if (visited[x, y] || map[x, y] != TileType.Wall) {
+        if (visited[x, y] || map[x, y] == TileType.Wall) {
             return;
         }
 
