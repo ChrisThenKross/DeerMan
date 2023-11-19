@@ -24,6 +24,9 @@ public class MainMapGameManager : MonoBehaviour
                 float x, z;
                 GetRandomValidPosition(map, squareSize, out x, out z);
                 enemies[i] = Instantiate(enemyPrefab, new Vector3(x, .5f, z), Quaternion.identity);
+
+                // Put enemy under GameManager
+                enemies[i].transform.parent = transform;
             }
         }
     }
