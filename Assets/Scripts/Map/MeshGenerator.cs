@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Unity.AI.Navigation;
@@ -42,7 +43,7 @@ public class MeshGenerator : MonoBehaviour {
         GenerateWalls();
         ReserVertexIndecies();
         GenerateFloor();
-        DistributeTrees ();
+        DistributeEnvironment ();
 
         watch.Stop ();
         Debug.Log ($"Generated mesh with {vertices.Count} vertices and {triangles.Count / 3} triangles in {watch.ElapsedMilliseconds}ms");
@@ -232,23 +233,65 @@ public class MeshGenerator : MonoBehaviour {
         }
     }
 
-    void DistributeTrees () {
+    void DistributeEnvironment () {
         List<Vector2> points = PoissonDiscSampling (100);
 
         foreach (Vector2 point in points) {
-            Debug.Log($"Point: {point}");
             Vector3 pos = new Vector3 (point.x, 0, point.y);
-            pos *= squareSize;
-            // pos += Vector3.up * 0.5f;
+            List<GameObject> possibleObjects = new();
 
-            // Center on map
+            // Add all objects that can be spawned
+            foreach (GameObject obj in environmentObjects) {
+                // Calculate 4 points on bounding box
+                Vector3[] pointsOnBox = new Vector3[4];
+                pointsOnBox[0] = pos + new Vector3 (obj.transform.localScale.x / 2f, 0, obj.transform.localScale.z / 2f);
+                pointsOnBox[1] = pos + new Vector3 (-obj.transform.localScale.x / 2f, 0, obj.transform.localScale.z / 2f);
+                pointsOnBox[2] = pos + new Vector3 (obj.transform.localScale.x / 2f, 0, -obj.transform.localScale.z / 2f);
+                pointsOnBox[3] = pos + new Vector3 (-obj.transform.localScale.x / 2f, 0, -obj.transform.localScale.z / 2f);
+
+                // Make sure no points are in walls or near walls
+                bool valid = true;
+                foreach (Vector3 pointOnBox in pointsOnBox) {
+                    int x = (int) pointOnBox.x;
+                    int y = (int) pointOnBox.z;
+
+                    for(int xx = -1; xx <= 1; xx++){
+                        for(int yy = -1; yy <= 1; yy++){
+                            if (x + xx >= 0 && x + xx < map.GetLength (0) && y + yy >= 0 && y + yy < map.GetLength (1)) {
+                                if (map[x + xx, y + yy] == TileType.Wall) {
+                                    valid = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(valid){
+                    possibleObjects.Add(obj);
+                }
+            }
+
+            // Adjust to map parameters
+            pos *= squareSize;
             pos.x -= map.GetLength (0) * squareSize / 2f;
             pos.z -= map.GetLength (1) * squareSize / 2f;
-            // pos.y -= wallHeight;
 
-            GameObject objectToSpawn = environmentObjects[UnityEngine.Random.Range (0, environmentObjects.Count)];
-            GameObject instance = Instantiate (objectToSpawn, pos, Quaternion.identity);
+            Color c = possibleObjects.Count > 0 ? Color.green : Color.red;
+            Debug.DrawLine (pos, pos + Vector3.up * 5, c, 100f);
 
+            // Choose from possible objects
+            Debug.Log($"Num possible: {possibleObjects.Count}");
+            if(possibleObjects.Count == 0){
+                continue;
+            }
+
+            GameObject objectToSpawn = possibleObjects[UnityEngine.Random.Range (0, possibleObjects.Count)];
+
+            // Rotate randomly in 90 degree increments
+            int rot = UnityEngine.Random.Range (0, 4);
+
+            GameObject instance = Instantiate (objectToSpawn, pos, Quaternion.Euler (0, rot * 90, 0));
             instance.transform.parent = transform;
             instance.transform.localScale = Vector3.one * squareSize;
         }
