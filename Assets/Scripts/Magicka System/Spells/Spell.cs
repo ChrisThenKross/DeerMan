@@ -38,7 +38,14 @@ public class Spell : MonoBehaviour
         {
             // damage the enemy based on the damage
             if (collision.GetComponent<Health>() != null)
+            {
+                if (collision.gameObject.name == "Weak Spot")
+                {
+                    Debug.Log("hit weakspot");
+                    // i dont wanna do this
+                }
                 collision.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage);
+            }
         }
 
         //splash damage (main hit above does most damage, everything below is lingering damage
