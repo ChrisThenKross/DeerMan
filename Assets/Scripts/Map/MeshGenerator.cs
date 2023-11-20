@@ -18,12 +18,15 @@ public class MeshGenerator : MonoBehaviour {
     // Object to instantiate
     public GameObject floor;
     public GameObject Player;
+    public GameObject exit;
 
     TileType[, ] map;
 
     public float wallHeight = 1;
     public float PoissonRadius = 10;
     private float squareSize = 1;
+
+    private Vector3 exitPos;
 
     void OnValidate () {
         if (map != null) {
@@ -43,6 +46,25 @@ public class MeshGenerator : MonoBehaviour {
         GenerateWalls();
         ReserVertexIndecies();
         GenerateFloor();
+
+        // Place exit
+        for(int i = 0; i < map.GetLength(0); i++){
+            for(int j = 0; j < map.GetLength(1); j++){
+                if(map[i,j] == TileType.Exit){
+                    exitPos = new Vector3 (i, 0, j);
+                    exitPos *= squareSize;
+                    exitPos.x -= map.GetLength (0) * squareSize / 2f;
+                    exitPos.z -= map.GetLength (1) * squareSize / 2f;
+
+                    GameObject exitInstance = Instantiate(exit, exitPos, Quaternion.identity);
+                    exitInstance.transform.parent = transform;
+                    exitInstance.transform.localScale = Vector3.one * squareSize;
+                    break;
+                }
+            }
+        }
+
+
         DistributeEnvironment ();
 
         watch.Stop ();
@@ -249,6 +271,11 @@ public class MeshGenerator : MonoBehaviour {
                 pointsOnBox[2] = pos + new Vector3 (obj.transform.localScale.x / 2f, 0, -obj.transform.localScale.z / 2f);
                 pointsOnBox[3] = pos + new Vector3 (-obj.transform.localScale.x / 2f, 0, -obj.transform.localScale.z / 2f);
 
+                // Make sure exit is not in bounding box
+                if (Vector3.Distance (pos, exitPos) < obj.transform.localScale.x) {
+                    continue;
+                }
+
                 // Make sure no points are in walls or near walls
                 bool valid = true;
                 foreach (Vector3 pointOnBox in pointsOnBox) {
@@ -258,7 +285,7 @@ public class MeshGenerator : MonoBehaviour {
                     for(int xx = -1; xx <= 1; xx++){
                         for(int yy = -1; yy <= 1; yy++){
                             if (x + xx >= 0 && x + xx < map.GetLength (0) && y + yy >= 0 && y + yy < map.GetLength (1)) {
-                                if (map[x + xx, y + yy] == TileType.Wall) {
+                                if (map[x + xx, y + yy] == TileType.Wall || map[x + xx, y + yy] == TileType.Exit) {
                                     valid = false;
                                     break;
                                 }
@@ -346,7 +373,7 @@ public class MeshGenerator : MonoBehaviour {
             int mapX = (int) candidate.x;
             int mapY = (int) candidate.y;
             if (mapX >= 0 && mapX < map.GetLength (0) && mapY >= 0 && mapY < map.GetLength (1)) {
-                if (map[mapX, mapY] == TileType.Wall) {
+                if (map[mapX, mapY] == TileType.Wall || map[mapX, mapY] == TileType.Exit) {
                     return false;
                 }
             }

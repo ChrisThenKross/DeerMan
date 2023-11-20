@@ -6,7 +6,8 @@ using UnityEngine;
 public enum TileType {
     Wall = 0,
     Floor = 1,
-    Passage = 2
+    Passage = 2,
+    Exit = 3
 }
 
 public class MapGenerator : MonoBehaviour {
@@ -69,8 +70,32 @@ public class MapGenerator : MonoBehaviour {
 
         ConnectRegions (borderedMap);
 
+        // Choose random position for exit
+        Vector2 pos = new Vector2 (UnityEngine.Random.Range (0, width), UnityEngine.Random.Range (0, height));
+        while (!IsValidPlayerPosition (pos)) {
+            pos = new Vector2 (UnityEngine.Random.Range (0, width), UnityEngine.Random.Range (0, height));
+        }
+
+        borderedMap[(int) pos.x, (int) pos.y] = TileType.Exit;
+
         MeshGenerator meshGen = GetComponent<MeshGenerator> ();
         meshGen.GenerateMesh (borderedMap, squareSize);
+    }
+
+    bool IsValidPlayerPosition (Vector2 pos) {
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int x = (int) pos.x + i;
+                int y = (int) pos.y + j;
+                if (x >= 0 && x < map.GetLength (0) && y >= 0 && y < map.GetLength (1)) {
+                    if (map[x, y] == TileType.Wall) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     void RandomFillMap () {

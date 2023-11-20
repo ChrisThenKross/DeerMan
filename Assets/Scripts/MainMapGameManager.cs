@@ -38,7 +38,7 @@ public class MainMapGameManager : MonoBehaviour
 
     private void GetRandomValidPosition(TileType[,] map, float squareSize, out float x, out float z){
         GetRandomPosition(map, out x, out z);
-        System.Func<Vector2, bool> checkValid = (Vector2 pos) =>       {
+        System.Func<Vector2, bool> checkValid = (Vector2 pos) => {
             for (int i = -1; i <= 1; i++){
                 for (int j = -1; j <= 1; j++){
                     int x = (int)pos.x + i;
