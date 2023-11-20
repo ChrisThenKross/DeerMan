@@ -133,7 +133,7 @@ public class MapGenerator : MonoBehaviour {
             for (int y = 0; y < map.GetLength (1); y++) {
                 if (!visited[x, y] && map[x, y] != TileType.Wall) {
                     Region region = new Region (regions.Count + 1);
-                    FloodFill (map, visited, x, y, region);
+                    FloodFillQueue (map, visited, x, y, region);
                     regions.Add (region);
                 }
             }
@@ -188,23 +188,32 @@ public class MapGenerator : MonoBehaviour {
         }
     }
 
-    void FloodFill (TileType[, ] map, bool[, ] visited, int x, int y, Region region) {
-        if (x < 0 || y < 0 || x >= map.GetLength (0) || y >= map.GetLength (1)) {
-            return;
+    void FloodFillQueue(TileType[, ] map, bool[, ] visited, int x, int y, Region region){
+        Queue<(int, int)> q = new Queue<(int, int)>();
+        q.Enqueue((x, y));
+
+        while(q.Count > 0){
+            (int, int) pos = q.Dequeue();
+            x = pos.Item1;
+            y = pos.Item2;
+
+            if (x < 0 || y < 0 || x >= map.GetLength (0) || y >= map.GetLength (1)) {
+                continue;
+            }
+
+            // Add all non wall tiles to this region
+            if (visited[x, y] || map[x, y] == TileType.Wall) {
+                continue;
+            }
+
+            visited[x, y] = true;
+            region.AddTile (new Tile (x, y, region.id), map);
+
+            q.Enqueue((x - 1, y));
+            q.Enqueue((x + 1, y));
+            q.Enqueue((x, y - 1));
+            q.Enqueue((x, y + 1));
         }
-
-        // Add all non wall tiles to this region
-        if (visited[x, y] || map[x, y] == TileType.Wall) {
-            return;
-        }
-
-        visited[x, y] = true;
-        region.AddTile (new Tile (x, y, region.id), map);
-
-        FloodFill (map, visited, x - 1, y, region);
-        FloodFill (map, visited, x + 1, y, region);
-        FloodFill (map, visited, x, y - 1, region);
-        FloodFill (map, visited, x, y + 1, region);
     }
 
     RegionConnection[, ] GetDists (List<Region> regions) {
