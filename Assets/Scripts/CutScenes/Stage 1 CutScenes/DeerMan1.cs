@@ -1,9 +1,9 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Wizard1 : MonoBehaviour
+public class DeerMan1 : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
@@ -13,7 +13,7 @@ public class Wizard1 : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        Invoke("startDialogue", 3);
+        Invoke("startDialogue", 13);
     }
 
     // Update is called once per frame
