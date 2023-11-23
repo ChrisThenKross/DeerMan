@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 353425491}
   - component: {fileID: 353425490}
   - component: {fileID: 353425489}
+  - component: {fileID: 353425492}
   m_Layer: 5
   m_Name: DeerManDialogue1
   m_TagString: Untagged
@@ -522,6 +523,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353425487}
   m_CullTransparentMesh: 1
+--- !u!95 &353425492
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353425487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &720355591
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +555,7 @@ GameObject:
   - component: {fileID: 720355592}
   - component: {fileID: 720355594}
   - component: {fileID: 720355593}
+  - component: {fileID: 720355595}
   m_Layer: 5
   m_Name: DeerMan Screen
   m_TagString: Untagged
@@ -597,6 +620,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720355591}
   m_CullTransparentMesh: 1
+--- !u!95 &720355595
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720355591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &807540808
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +859,10 @@ PlayableDirector:
     value: {fileID: 1965614406}
   - key: {fileID: 4181519168441612229, guid: 6bbf726c772d38646b3da9553d5ed616, type: 2}
     value: {fileID: 232502259}
+  - key: {fileID: 1429316491708066084, guid: 6bbf726c772d38646b3da9553d5ed616, type: 2}
+    value: {fileID: 720355595}
+  - key: {fileID: -5614813730889861073, guid: 6bbf726c772d38646b3da9553d5ed616, type: 2}
+    value: {fileID: 353425492}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1251396625
