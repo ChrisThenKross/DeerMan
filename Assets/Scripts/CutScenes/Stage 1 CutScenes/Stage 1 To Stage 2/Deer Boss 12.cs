@@ -13,7 +13,7 @@ public class DeerBoss12 : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        Invoke("startDialogue", 3);
+        Invoke("startDialogue", 12);
     }
 
     // Update is called once per frame
