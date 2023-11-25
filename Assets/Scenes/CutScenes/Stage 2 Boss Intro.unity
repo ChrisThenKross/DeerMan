@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 131506219}
   - component: {fileID: 131506218}
   - component: {fileID: 131506217}
+  - component: {fileID: 131506220}
   m_Layer: 5
   m_Name: Deer Man Text 1
   m_TagString: Untagged
@@ -274,6 +275,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131506215}
   m_CullTransparentMesh: 1
+--- !u!95 &131506220
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131506215}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &636130214
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +307,7 @@ GameObject:
   - component: {fileID: 636130215}
   - component: {fileID: 636130217}
   - component: {fileID: 636130216}
+  - component: {fileID: 636130218}
   m_Layer: 5
   m_Name: Deer Man
   m_TagString: Untagged
@@ -324,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -349,6 +372,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636130214}
   m_CullTransparentMesh: 1
+--- !u!95 &636130218
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636130214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1043042646
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +405,7 @@ GameObject:
   - component: {fileID: 1043042650}
   - component: {fileID: 1043042649}
   - component: {fileID: 1043042648}
+  - component: {fileID: 1043042651}
   m_Layer: 5
   m_Name: Deer Man Text 2
   m_TagString: Untagged
@@ -500,6 +545,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043042646}
   m_CullTransparentMesh: 1
+--- !u!95 &1043042651
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043042646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1044953570
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +578,7 @@ GameObject:
   - component: {fileID: 1044953574}
   - component: {fileID: 1044953573}
   - component: {fileID: 1044953572}
+  - component: {fileID: 1044953575}
   m_Layer: 5
   m_Name: Bus Text 1
   m_TagString: Untagged
@@ -651,6 +718,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044953570}
   m_CullTransparentMesh: 1
+--- !u!95 &1044953575
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044953570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1082309564
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +751,7 @@ GameObject:
   - component: {fileID: 1082309568}
   - component: {fileID: 1082309567}
   - component: {fileID: 1082309566}
+  - component: {fileID: 1082309569}
   m_Layer: 5
   m_Name: Bus Text 2
   m_TagString: Untagged
@@ -802,6 +891,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082309564}
   m_CullTransparentMesh: 1
+--- !u!95 &1082309569
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082309564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1118736508
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +924,7 @@ GameObject:
   - component: {fileID: 1118736511}
   - component: {fileID: 1118736510}
   - component: {fileID: 1118736509}
+  - component: {fileID: 1118736513}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -910,6 +1021,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!320 &1118736513
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118736508}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 246461171537966786, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 636130218}
+  - key: {fileID: -8210181658573702560, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 131506220}
+  - key: {fileID: 2411965870634969152, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 1390191678}
+  - key: {fileID: -6654198047985849152, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 1044953575}
+  - key: {fileID: -8635529019589880585, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 1043042651}
+  - key: {fileID: 7665195809840783686, guid: 24daa15f72213d14f83ed619a9815259, type: 2}
+    value: {fileID: 1082309569}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1390191674
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +1061,7 @@ GameObject:
   - component: {fileID: 1390191675}
   - component: {fileID: 1390191677}
   - component: {fileID: 1390191676}
+  - component: {fileID: 1390191678}
   m_Layer: 5
   m_Name: Bus
   m_TagString: Untagged
@@ -960,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -985,6 +1126,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390191674}
   m_CullTransparentMesh: 1
+--- !u!95 &1390191678
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390191674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1682179230
 GameObject:
   m_ObjectHideFlags: 0
