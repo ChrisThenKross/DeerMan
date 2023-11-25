@@ -7,10 +7,26 @@ public class MainMapGameManager : MonoBehaviour
     public int MaxEnemyCount = 20;
 
     public GameObject enemyPrefab;
+    private int enemiesKilled;
     private GameObject [] enemies;
 
+    // Store next boss fight here
+    public string nextBossFight;
+
     public void Start(){
+        enemiesKilled = -MaxEnemyCount; // Offset for the first time UpdateEnemies is called
         enemies = new GameObject[MaxEnemyCount];
+    }
+
+    public void Update(){ 
+        GameObject dialogueManager = GameObject.Find("DialogueManager");
+        NPCDialogue npcDialogue = dialogueManager.GetComponent<NPCDialogue>();
+        if(npcDialogue.getConversationStatus()){
+            Debug.Log("Loading next scene");
+            // Load next boss fight
+            // UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight);
+        }
+
     }
 
     public void UpdateEnemies(TileType[,] map, float squareSize){
@@ -27,6 +43,7 @@ public class MainMapGameManager : MonoBehaviour
 
                 // Put enemy under GameManager
                 enemies[i].transform.parent = transform;
+                enemiesKilled++;    
             }
         }
     }
@@ -61,5 +78,14 @@ public class MainMapGameManager : MonoBehaviour
         // Center position over center of maze
         x -= map.GetLength(0) * squareSize / 2f;
         z -= map.GetLength(1) * squareSize / 2f;
+    }
+
+
+    public int GetEnemiesKilled(){
+        return enemiesKilled;
+    }
+
+    public int GetMaxEnemies(){
+        return MaxEnemyCount;
     }
 }

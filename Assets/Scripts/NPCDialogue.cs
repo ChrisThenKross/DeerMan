@@ -7,27 +7,27 @@ public class NPCDialogue : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
-    private int index;
+    protected int index = 0;
     public float typingSpeed;
-    private bool conversationDone;
+    protected bool conversationDone;
 
     public GameObject continueButton;
 
-    void Update()
+    public void Update()
     {
         if (textDisplay.text == sentences[index])
         {
-            continueButton.SetActive(true);
+            if(index == sentences.Length - 1)
+                conversationDone = true;
+            else
+                continueButton.SetActive(true);
         }
     }
 
-    //void Start()
-    //{
-    //    StartCoroutine(Type());
-    //}
-
     public void StartConversation()
     {
+        conversationDone = false;
+        textDisplay.text = "";
         StartCoroutine(Type());
     }
 
@@ -42,6 +42,8 @@ public class NPCDialogue : MonoBehaviour
 
     public void NextSentence()
     {
+        Debug.Log("Next sentence");
+
         continueButton.SetActive(false);
         if (index < sentences.Length -1)
         {

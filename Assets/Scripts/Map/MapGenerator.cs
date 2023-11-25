@@ -30,23 +30,10 @@ public class MapGenerator : MonoBehaviour {
     }
 
     void Update () {
-        if (Input.GetMouseButtonDown (0)) {
-            // Start timer
-            var watch = System.Diagnostics.Stopwatch.StartNew ();
-            GenerateMap ();
-            // Stop timer
-            watch.Stop ();
-            Debug.Log ($"Generated map in {watch.ElapsedMilliseconds}ms");
-        }
-
         // Keep enemies spawned
         MainMapGameManager gameManager = GetComponent<MainMapGameManager> ();
         gameManager.UpdateEnemies (map, squareSize);
     }
-
-    // void OnValidate () {
-    //     GenerateMap ();
-    // }
 
     void GenerateMap () {
         map = new TileType[width, height];

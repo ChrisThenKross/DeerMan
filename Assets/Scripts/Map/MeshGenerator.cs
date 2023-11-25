@@ -17,7 +17,6 @@ public class MeshGenerator : MonoBehaviour {
 
     // Object to instantiate
     public GameObject floor;
-    public GameObject Player;
     public GameObject exit;
 
     TileType[, ] map;
@@ -56,9 +55,9 @@ public class MeshGenerator : MonoBehaviour {
                     exitPos.x -= map.GetLength (0) * squareSize / 2f;
                     exitPos.z -= map.GetLength (1) * squareSize / 2f;
 
-                    GameObject exitInstance = Instantiate(exit, exitPos, Quaternion.identity);
-                    exitInstance.transform.parent = transform;
-                    exitInstance.transform.localScale = Vector3.one * squareSize;
+                    exit.transform.position = exitPos;
+                    exit.transform.parent = transform;
+                    exit.transform.localScale = Vector3.one * squareSize;
                     break;
                 }
             }
@@ -81,7 +80,8 @@ public class MeshGenerator : MonoBehaviour {
         playerpos3.x -= map.GetLength (0) * squareSize / 2f;
         playerpos3.z -= map.GetLength (1) * squareSize / 2f;
 
-        Player.transform.position = playerpos3;
+        GameObject player = GameObject.Find ("Player");
+        player.transform.position = playerpos3;
 
         // Bake NavMesh
         NavMeshSurface navMesh = floor.GetComponent<NavMeshSurface> ();
@@ -308,7 +308,6 @@ public class MeshGenerator : MonoBehaviour {
             Debug.DrawLine (pos, pos + Vector3.up * 5, c, 100f);
 
             // Choose from possible objects
-            Debug.Log($"Num possible: {possibleObjects.Count}");
             if(possibleObjects.Count == 0){
                 continue;
             }
