@@ -24,6 +24,7 @@ public class Spell : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.isKinematic = true;
 
+
         Destroy(this.gameObject, SpellToCast.Lifetime);
     }
 
@@ -52,7 +53,7 @@ public class Spell : MonoBehaviour
         if (SpellToCast.SplashDamage)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, SpellToCast.SplashDamageRadius);
-            foreach(Collider collider in colliders)
+            foreach (Collider collider in colliders)
             {
                 if (collider.GetComponent<Health>() != null)
                     collider.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage - 3); // yeah so its -3 damage penalty for splash
@@ -63,14 +64,17 @@ public class Spell : MonoBehaviour
         if (pierceLeft > 0 && collision.tag == "Enemy")
         {
             pierceLeft--;
-        } else
+        }
+        else
         {
             Destroy(this.gameObject);
         }
 
+
         //Apply spell effects on hit (explosion, etc)
         if (SpellToCast.onHitFX != null)
         {
+            Debug.Log("hit successfully");
             GameObject fx = Instantiate(SpellToCast.onHitFX, transform.position, Quaternion.identity);
             Destroy(fx, 1.5f);
         }
