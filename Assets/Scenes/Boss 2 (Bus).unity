@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185720962}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e96a5fb8806fc4ab74747435bc9039, type: 3}
   m_Name: 
@@ -2969,7 +2969,7 @@ MonoBehaviour:
   ShootPoint: {fileID: 1329653065}
   fireRate: 5
   nextFire: 0
-  Bus: {fileID: 0}
+  Bus: {fileID: 2058462447}
 --- !u!1 &1254373578
 GameObject:
   m_ObjectHideFlags: 0
