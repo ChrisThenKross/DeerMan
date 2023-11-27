@@ -2969,6 +2969,7 @@ MonoBehaviour:
   ShootPoint: {fileID: 1329653065}
   fireRate: 5
   nextFire: 0
+  Bus: {fileID: 2058462447}
 --- !u!1 &1254373578
 GameObject:
   m_ObjectHideFlags: 0
