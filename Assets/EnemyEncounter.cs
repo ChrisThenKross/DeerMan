@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class EnemyEncounter : MonoBehaviour
 {
-    int enemiesLeft = 0;
-    bool killedAllEnemies = false;
     public GameObject boss;
 
-    void Start()
-    {
-        enemiesLeft = 5;
-    }
+    private bool bossSpawned = false;
 
     // Update is called once per frame
     void Update()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemiesLeft = enemies.Length;
-        Debug.Log("There are " + enemiesLeft);
-        if(enemiesLeft == 6 )
+        // Empty that contains the enemies
+        GameObject empty = GameObject.Find("Enemies");
+        GameObject[] enemies = new GameObject[empty.transform.childCount];
+
+        int enemiesLeft = enemies.Length;
+        if(!bossSpawned && enemiesLeft == 6 )
         {
             boss.SetActive(true);
+            bossSpawned = true;
+        }
+
+        // Check if boss is dead
+        if (bossSpawned && boss == null && enemiesLeft == 0)
+        {
+            // Load the map gen 1 scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Map Gen 1");
         }
     }
 }

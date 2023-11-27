@@ -9481,6 +9481,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589197420}
   m_Mesh: {fileID: 4300000, guid: 492d8e950eb8f400ba7002e5704219df, type: 3}
+--- !u!1 &1600295384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600295385}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600295385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600295384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.963032, y: 1.3391724, z: 4.584816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611825014
 GameObject:
   m_ObjectHideFlags: 0
@@ -13126,9 +13157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520bd9d8410fedf4d87854741d47b961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4121327099318750497}
   DialogueManager: {fileID: 2027860561}
   enemy: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+  EnemyContainer: {fileID: 1600295384}
 --- !u!65 &2098225426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13458,46 +13489,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2426230860507947653, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 612192179}
-    - target: {fileID: 2426230860507947653, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: big_ice
-      value: 
-      objectReference: {fileID: 8209180894494509333, guid: 8083e33bb1cdafc4084db11459bfab72, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: med_ice
-      value: 
-      objectReference: {fileID: 7538790813047216005, guid: 8ed81972830051a4d8682683b7c2e862, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: big_horn
-      value: 
-      objectReference: {fileID: 5010228428338568453, guid: b91eaebfce1698e40a778cba046fb02a, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: med_horn
-      value: 
-      objectReference: {fileID: 6619877401645090768, guid: 3695647b27b5ac0459dfec2ada4b04b7, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: small_ice
-      value: 
-      objectReference: {fileID: 4630419161944579352, guid: a3b9fecf28918264ab2716ab1d81227a, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: small_horn
-      value: 
-      objectReference: {fileID: 1485873243104171800, guid: 25d92d83eaf09204abb2e67713f678f3, type: 3}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: spellQueue
-      value: 
-      objectReference: {fileID: 541331849}
-    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
-      propertyPath: firefirehorn
-      value: 
-      objectReference: {fileID: 5287509463830909196, guid: ac726c71e4c74a14eb15907e24a90e4f, type: 3}
     - target: {fileID: 3207189457018239818, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13546,6 +13537,46 @@ PrefabInstance:
       propertyPath: spellQueue
       value: 
       objectReference: {fileID: 541331849}
+    - target: {fileID: 2426230860507947653, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 612192179}
+    - target: {fileID: 2426230860507947653, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: big_ice
+      value: 
+      objectReference: {fileID: 8209180894494509333, guid: 8083e33bb1cdafc4084db11459bfab72, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: med_ice
+      value: 
+      objectReference: {fileID: 7538790813047216005, guid: 8ed81972830051a4d8682683b7c2e862, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: big_horn
+      value: 
+      objectReference: {fileID: 5010228428338568453, guid: b91eaebfce1698e40a778cba046fb02a, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: med_horn
+      value: 
+      objectReference: {fileID: 6619877401645090768, guid: 3695647b27b5ac0459dfec2ada4b04b7, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: small_ice
+      value: 
+      objectReference: {fileID: 4630419161944579352, guid: a3b9fecf28918264ab2716ab1d81227a, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: small_horn
+      value: 
+      objectReference: {fileID: 1485873243104171800, guid: 25d92d83eaf09204abb2e67713f678f3, type: 3}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: spellQueue
+      value: 
+      objectReference: {fileID: 541331849}
+    - target: {fileID: 4176407721784380905, guid: 74eef5c16876f2a4f9f8b53553cc7194, type: 3}
+      propertyPath: firefirehorn
+      value: 
+      objectReference: {fileID: 5287509463830909196, guid: ac726c71e4c74a14eb15907e24a90e4f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13554,11 +13585,6 @@ PrefabInstance:
 --- !u!4 &4121327099318522113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5824853066097402204, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
-  m_PrefabInstance: {fileID: 1181215212483919001}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4121327099318750497 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3207189457018239818, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
   m_PrefabInstance: {fileID: 1181215212483919001}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
@@ -13574,3 +13600,4 @@ SceneRoots:
   - {fileID: 758721898}
   - {fileID: 1050620001}
   - {fileID: 122682862}
+  - {fileID: 1600295385}

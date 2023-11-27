@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenGate : MonoBehaviour {
-    [SerializeField] GameObject player;
-
     public GameObject DialogueManager;
-
-    //Enemy prefab
     public GameObject enemy;
+    public GameObject EnemyContainer;
 
     void Update () {
         //if (DialogueManager.GetComponent<NPCDialogue>.
@@ -24,7 +21,8 @@ public class OpenGate : MonoBehaviour {
             Vector3 basePosition = new Vector3 (0, 0.5f, 30);
             for (int i = 0; i < 10; i++) {
                 Vector3 position = basePosition + new Vector3 (Random.Range (-5, 5), 0, Random.Range (-5, 5));
-                Instantiate (enemy, position, Quaternion.identity);
+                GameObject instance = Instantiate (enemy, position, Quaternion.identity);
+                instance.transform.parent = EnemyContainer.transform;
             }
 
             GameObject.Find("EventSystem").GetComponent<EnemyEncounter>().enabled = true;
