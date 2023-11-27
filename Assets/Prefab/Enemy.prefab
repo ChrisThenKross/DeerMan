@@ -10046,7 +10046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfd9912e38b3024798d70c1610f7d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &4320099512851923999
 GameObject:
   m_ObjectHideFlags: 0
@@ -19134,7 +19133,7 @@ Transform:
   m_GameObject: {fileID: 9126018755174111261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5596027, y: 0.45007563, z: 5.16}
+  m_LocalPosition: {x: 0.10330415, y: 0.45007515, z: 10.43819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19264,7 +19263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d40f09c316c7ff47a9cd5bc8b0b25f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6511940478807293277}
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  agent: {fileID: 0}
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
@@ -19277,7 +19279,7 @@ MonoBehaviour:
   timeBetweenAttack: 1
   projectile: {fileID: 2831711359184402968, guid: 81013788f88888b4cbf27cbca1af66db, type: 3}
   throwPoint: {fileID: 5074448841356316222}
-  sightRange: 7.18
+  sightRange: 15
   attackRange: 5.48
   playerInSightRange: 0
   playerInAttackRange: 0

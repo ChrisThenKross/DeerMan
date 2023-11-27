@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     public virtual void Start()
     {
         currentHealth = maxHealth;
-        healthBar.value = maxHealth;
+        //healthBar.value = maxHealth;
         animator = GetComponent<Animator>();
     }
 

@@ -16,6 +16,7 @@ public class EnemyEncounter : MonoBehaviour
         GameObject[] enemies = new GameObject[empty.transform.childCount];
 
         int enemiesLeft = enemies.Length;
+        Debug.Log(enemiesLeft);
         if(!bossSpawned && enemiesLeft == 6 )
         {
             boss.SetActive(true);
@@ -23,7 +24,7 @@ public class EnemyEncounter : MonoBehaviour
         }
 
         // Check if boss is dead
-        if (bossSpawned && boss == null && enemiesLeft == 0)
+        if (enemiesLeft == 0)
         {
             // Load the map gen 1 scene
             UnityEngine.SceneManagement.SceneManager.LoadScene("Map Gen 1");

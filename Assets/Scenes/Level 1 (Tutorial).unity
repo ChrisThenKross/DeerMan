@@ -721,6 +721,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4608837730324570609, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4121327099318522113}
     - target: {fileID: 5269014130271145738, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -731,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5269014130271145738, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.9
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
       propertyPath: m_Name
@@ -5379,7 +5383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f429115d1883a4e89dc33bd45af790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 1928025164}
+  boss: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
 --- !u!1 &794408681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6608,7 +6612,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: ded0a75505a93e241b3b48ec9dff073a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: dc5083297b00ad44da6b45717bbf8b59, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1050620001
 Transform:
@@ -9506,7 +9510,7 @@ Transform:
   m_GameObject: {fileID: 1600295384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.963032, y: 1.3391724, z: 4.584816}
+  m_LocalPosition: {x: -2.34, y: 1.3391724, z: 28.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11518,11 +11522,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908912827}
   m_Mesh: {fileID: 4300002, guid: bd9a4c517710a854a9f69bdb81f7ef98, type: 3}
---- !u!1 &1928025164 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
-  m_PrefabInstance: {fileID: 122682862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1931822587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13533,6 +13532,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6616564560567170301, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 612192179}
     - target: {fileID: 8258311640450178347, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
       propertyPath: spellQueue
       value: 
