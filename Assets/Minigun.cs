@@ -9,7 +9,12 @@ public class Minigun : MonoBehaviour
     public GameObject boulette;
     public Transform ShootPoint;
     public float fireRate, nextFire;
+    public GameObject Bus;
+    BusAI checkState;
     // Start is called before the first frame update
+
+
+    private bool canGo = false;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -18,11 +23,24 @@ public class Minigun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        head.LookAt(Player);
-        if (Time.time >= nextFire)
+        BusAI checkState = Bus.GetComponent<BusAI>();
+        if (checkState != null)
         {
-            nextFire = Time.time + 1f / fireRate;
-            Shoot();
+            if (checkState.phaseTwo) canGo = true;
+            Debug.Log("ON THE WAY");
+        }
+
+
+
+
+        if (canGo)
+        {
+            head.LookAt(Player);
+            if (Time.time >= nextFire)
+            {
+                nextFire = Time.time + 1f / fireRate;
+                Shoot();
+            }
         }
     }
 

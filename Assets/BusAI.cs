@@ -33,6 +33,7 @@ public class BusAI : MonoBehaviour
     public bool playerInChargeRange;
     public bool RangeTooClose;
     private int health;
+    public bool phaseTwo = false;
 
     private void Awake()
     {
@@ -57,7 +58,11 @@ public class BusAI : MonoBehaviour
         if (playerInChargeRange && alreadyAttacked && health >= 2500) ChasePlayer(); //moving while cooldown
         if (playerInChargeRange && !attacking && health >= 2500) StartCoroutine(ChargedAttack());
         //Phase 2 Charged Attack & Turret
-        if (health < 2500 & !PhaseTransition) StartCoroutine(NextPhase());
+        if (health < 2500 & !PhaseTransition)
+        {
+            phaseTwo = true;
+            StartCoroutine(NextPhase());
+        }
         if (health < 2500 & PhaseTransition & !RangeTooClose) ChasePlayer();
         if (health < 2500 & PhaseTransition & RangeTooClose) SpinAttack();
     }
