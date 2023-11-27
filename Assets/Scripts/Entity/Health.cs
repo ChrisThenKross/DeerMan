@@ -19,10 +19,13 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // public virtual void Update()
-    // {
-    //     healthBar.value = currentHealth;
-    // }
+    public virtual void Update()
+    {
+        if(IsDead() == true)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Conclusion");
+        }
+    }
 
     public void TakeDamage(int damage)
     {

@@ -23,7 +23,7 @@ public class LinkingBossIntrotoBoss : MonoBehaviour
 
     public void SceneCalling()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("boss room fight 1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("bf1 arena");
     }
 }
 

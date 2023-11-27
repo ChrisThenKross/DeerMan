@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScenes/Stage 1 Boss Intro.unity
     guid: 26339a21e9a2e754583d1b8e6ca38dfd
   - enabled: 1
-    path: Assets/Scenes/boss room fight 1.unity
+    path: Assets/Scenes/boss fight arena/bf1 arena.unity
     guid: ce32792e3e7a3254984d13d85af2c697
   - enabled: 1
     path: Assets/Scenes/CutScenes/Stage 1 Conclusion.unity
