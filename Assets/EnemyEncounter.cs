@@ -27,7 +27,7 @@ public class EnemyEncounter : MonoBehaviour
         if (enemiesLeft == 0)
         {
             // Load the map gen 1 scene
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Map Gen 1");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial to Stage 1 CS");
         }
     }
 }

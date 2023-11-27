@@ -24,7 +24,14 @@ public class MainMapGameManager : MonoBehaviour
         if(npcDialogue.getConversationStatus()){
             Debug.Log("Loading next scene");
             // Load next boss fight
-            // UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Boss Intro");
+        }
+
+        if(GetEnemiesKilled() >= 20)
+        {
+            Debug.Log("Loading next scene");
+            // Load next boss fight
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Boss Intro");
         }
 
     }
