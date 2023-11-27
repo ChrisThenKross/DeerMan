@@ -248,7 +248,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6391997949882309040, guid: ae99cf178f4765d4494a52984acd0a61, type: 3}
       propertyPath: m_Name
-      value: train-wagon-cargo
+      value: Bait Train
       objectReference: {fileID: 0}
     - target: {fileID: 6391997949882467728, guid: ae99cf178f4765d4494a52984acd0a61, type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8418586257059712295, guid: 2853ffb98d129934a8386195ac09cfb7, type: 3}
       propertyPath: m_Name
-      value: train-wagon-oil
+      value: Missile Train
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3551,6 +3551,7 @@ MonoBehaviour:
   ShootPoint: {fileID: 1329653065}
   fireRate: 5
   nextFire: 0
+  Bus: {fileID: 0}
 --- !u!4 &1221982449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 796014860116308685, guid: bacdded962710b54a8b7375f18db7ab5, type: 3}
@@ -3953,7 +3954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8418586257059712295, guid: 2853ffb98d129934a8386195ac09cfb7, type: 3}
       propertyPath: m_Name
-      value: train-wagon-oil (1)
+      value: Laser Train
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4040,6 +4041,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5824853066097402204, guid: e88499b5ea27e0c4093d6f5c09971384, type: 3}
   m_PrefabInstance: {fileID: 1181215212483919001}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1387993208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.261322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.45007515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.010905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881203071943676628, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3222262041524291694, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
+      propertyPath: m_Name
+      value: scifi-barrier-large-corner-electric
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c844e9fd80cc93e418268bd04b05de1c, type: 3}
 --- !u!1001 &1404444896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4584,7 +4642,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8865379991084042218, guid: 9c3faa8ab3827b34899ecff35e19195f, type: 3}
       propertyPath: m_Name
-      value: train-freight-short
+      value: Main Train
       objectReference: {fileID: 0}
     - target: {fileID: 8865379991084080074, guid: 9c3faa8ab3827b34899ecff35e19195f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5763,3 +5821,4 @@ SceneRoots:
   - {fileID: 513725769}
   - {fileID: 1492748257}
   - {fileID: 2084024083}
+  - {fileID: 1387993208}
