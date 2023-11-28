@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AddIce",
+                    "name": "AddBlud",
                     "type": "Button",
                     "id": "a52bd3d6-4790-4287-820e-e71a9961a84c",
                     "expectedControlType": "Button",
@@ -141,18 +141,18 @@
                 {
                     "name": "",
                     "id": "54f31d5e-f8e8-459b-8844-fc240e03c2bd",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AddIce",
+                    "action": "AddBlud",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "a488bebd-5ba3-4d24-b7cf-e706d55ed55e",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

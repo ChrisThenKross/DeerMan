@@ -20,18 +20,19 @@ public class MagicQueue : MonoBehaviour
     [SerializeField] private Transform castPoint;
     private int activeBluds = 1;
     // LIST OF ALL OUR POSSIBLE SPELLS
+    [SerializeField] private GameObject blud;
+
     [SerializeField] private Spell small_fireball;
     [SerializeField] private Spell med_fireball;
     [SerializeField] private Spell big_fireball;
 
-    [SerializeField] private GameObject blud;
-
-
     [SerializeField] private Spell small_horn;
     [SerializeField] private Spell med_horn;
     [SerializeField] private Spell big_horn;
+
+    [SerializeField] private Spell firehorn;
     [SerializeField] private Spell firefirehorn;
-    [SerializeField] private Spell spellToCast;
+    [SerializeField] private Spell firehornhorn;
 
     /*TODO:
      * FIRE,FIRE,ICE
@@ -95,7 +96,7 @@ public class MagicQueue : MonoBehaviour
         }
     }
 
-    public void AddIce(InputAction.CallbackContext context)
+    public void AddBlud(InputAction.CallbackContext context)
     {
         if (context.started)
         {
