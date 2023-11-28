@@ -10209,7 +10209,7 @@ GameObject:
   - component: {fileID: 2120352795764515412}
   m_Layer: 0
   m_Name: Blud
-  m_TagString: Untagged
+  m_TagString: Blud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10360,6 +10360,7 @@ MonoBehaviour:
   Enemy:
     serializedVersion: 2
     m_Bits: 8
+  lifetime: 6
   timeBetweenAttack: 1.75
   projectile: {fileID: 2831711359184402968, guid: 60a1785dfb11fdf419f3828516ac2ee3, type: 3}
   throwPoint: {fileID: 5371944522795965552}

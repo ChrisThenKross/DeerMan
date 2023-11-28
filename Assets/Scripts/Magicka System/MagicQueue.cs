@@ -18,13 +18,15 @@ public class MagicQueue : MonoBehaviour
     private InputManager playerControls;
     [SerializeField] private TMP_Text spellQueue;
     [SerializeField] private Transform castPoint;
+    private int activeBluds = 1;
     // LIST OF ALL OUR POSSIBLE SPELLS
     [SerializeField] private Spell small_fireball;
     [SerializeField] private Spell med_fireball;
     [SerializeField] private Spell big_fireball;
-    [SerializeField] private Spell small_ice;
-    [SerializeField] private Spell med_ice;
-    [SerializeField] private Spell big_ice;
+
+    [SerializeField] private GameObject blud;
+
+
     [SerializeField] private Spell small_horn;
     [SerializeField] private Spell med_horn;
     [SerializeField] private Spell big_horn;
@@ -73,6 +75,12 @@ public class MagicQueue : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        GameObject[] bluds = GameObject.FindGameObjectsWithTag("Blud");
+        activeBluds = bluds.Length;
+    }
+
 
     private void Awake()
     {
@@ -91,7 +99,7 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            AddSpell("ice");
+            AddSpell("blud");
         }
     }
 
@@ -152,23 +160,22 @@ public class MagicQueue : MonoBehaviour
                     Instantiate(big_fireball, castPoint.position, castPoint.rotation);
                     PlayFire();
                 }
-                else if (spell.Equals("ice"))
+                else if (spell.Equals("blud"))
                 {
-                    spellQueue.text = "Casted spell: small iceball";
-                    Instantiate(small_ice, castPoint.position, castPoint.rotation);
+                    spellQueue.text = "Casted spell: summon blud";
+                    SummonBlud(1);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("ice,ice"))
+                else if (spell.Equals("blud,blud"))
                 {
-                    spellQueue.text = "Casted spell: medium iceball";
-                    Instantiate(med_ice, castPoint.position, castPoint.rotation);
+                    spellQueue.text = "Casted spell: summon bluds";
+                    SummonBlud(2);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("ice,ice,ice"))
+                else if (spell.Equals("blud,blud,blud"))
                 {
-                    
-                    spellQueue.text = "Casted spell: large iceball";
-                    Instantiate(big_ice, castPoint.position, castPoint.rotation);
+                    spellQueue.text = "Casted spell: summon 3 bluds";
+                    SummonBlud(3);
                     PlayIce();
                 }
                 else if (spell.Equals("horn"))
@@ -195,6 +202,10 @@ public class MagicQueue : MonoBehaviour
                     spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
                     Instantiate(firefirehorn, castPoint.position, castPoint.rotation);
                 }
+                else
+                {
+                    spellQueue.text = "The spell does nothing.";
+                }
             }
             else
             {
@@ -211,5 +222,16 @@ public class MagicQueue : MonoBehaviour
         {
             spellQueue.text += spell + ", ";
         }
+    }
+
+    private void SummonBlud(int amount)
+    {
+        if (activeBluds > 0)
+        {
+            spellQueue.text = "Your companions are still alive!";
+            return;
+        }
+        for (int x = 0; x < amount; x++)
+            Instantiate(blud, transform.position + (transform.forward * 2), transform.rotation);
     }
 }
