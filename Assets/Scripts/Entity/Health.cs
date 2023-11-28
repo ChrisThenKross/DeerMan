@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     public virtual void Start()
     {
         currentHealth = maxHealth;
-        healthBar.value = maxHealth;
+        if (healthBar != null ) healthBar.value = maxHealth;
         animator = GetComponent<Animator>();
     }
 
@@ -23,7 +23,8 @@ public class Health : MonoBehaviour
     {
         if(IsDead() == true)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Conclusion");
+            // alan fix this
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Conclusion");
         }
     }
 
