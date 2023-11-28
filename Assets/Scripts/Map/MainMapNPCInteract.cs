@@ -7,7 +7,7 @@ public class MainMapNPCInteract : NPCInteract
 {
     public TextMeshProUGUI textDisplay;
 
-    public int enemiesKilledToProgessRatio = 2;
+    public float enemiesKilledToProgessRatio = 2;
 
     public new void Interact()
     {
