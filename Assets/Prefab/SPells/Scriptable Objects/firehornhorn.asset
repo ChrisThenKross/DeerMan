@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9fef6f1bf9e66b4fbf57912e430f4a2, type: 3}
-  m_Name: med_Fireball
+  m_Name: firehornhorn
   m_EditorClassIdentifier: 
   Damage: 10
   Lifetime: 2
   Speed: 15
   SpellRadius: 0.5
-  SplashDamage: 1
-  SplashDamageRadius: 2
+  SplashDamage: 0
+  SplashDamageRadius: 0
   enemiesCanPierce: 0
-  onHitFX: {fileID: 7595246718240155542, guid: 2cc0404601310254290f4049d2f500a0, type: 3}
-  knockback: 1
-  knockbackForce: 1500
-  knockbackRadius: 5
+  onHitFX: {fileID: 0}
+  knockback: 0
+  knockbackForce: 0
+  knockbackRadius: 0

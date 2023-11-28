@@ -35,7 +35,7 @@ public class Spell : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "EnemyParent")
         {
             // damage the enemy based on the damage
             if (collision.GetComponent<Health>() != null)
@@ -61,7 +61,7 @@ public class Spell : MonoBehaviour
         }
 
         // wait should we destroy or pierce?
-        if (pierceLeft > 0 && collision.tag == "Enemy")
+        if (pierceLeft > 0 && (collision.tag == "Enemy" || collision.tag == "EnemyParent"))
         {
             pierceLeft--;
         }
