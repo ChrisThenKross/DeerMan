@@ -18,6 +18,7 @@ public class MeshGenerator : MonoBehaviour {
     // Object to instantiate
     public GameObject floor;
     public GameObject exit;
+    public GameObject wall;
 
     TileType[, ] map;
 
@@ -395,14 +396,22 @@ public class MeshGenerator : MonoBehaviour {
     }
 
     void CreateWall (Node a, Node b) {
-        // Create a node above either node
-        Node c = new Node (a.position + Vector3.down * wallHeight);
-        Node d = new Node (b.position + Vector3.down * wallHeight);
+        Vector3 pos = (a.position + b.position) / 2f;
+        pos.y -= .01f; // Eliminate z-fighting
+        GameObject instance = Instantiate (wall, pos, Quaternion.identity);
+        instance.transform.parent = transform;
 
-        // There is some really wierd bug when assigning vertices on large sizes
-        AssignVertices (a, b, c, d);
-        CreateTriangle (b, a, c);
-        CreateTriangle (b, c, d);
+        // Rotate wall to face correct direction
+        Vector3 c = a.position + Vector3.down * wallHeight;
+        // The plane it needs to be on is the plane that is the plane a,b,c
+        // So we can use the cross product to get the normal of that plane
+        Vector3 normal = Vector3.Cross (b.position - a.position, c - a.position);
+        // The wall should be facing the inverse of the normal
+        instance.transform.rotation = Quaternion.LookRotation (-normal);
+
+        // Scale wall to correct size with wall height
+        instance.transform.localScale = new Vector3 (.25f, 1, 1);
+
     }
 
     void MeshFromPoints (params Node[] points) {
