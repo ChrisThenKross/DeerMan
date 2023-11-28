@@ -1824,7 +1824,8 @@ MonoBehaviour:
   - {fileID: 1701688722445702860, guid: 9bcc0329962a03047b05e9146dcfa3a5, type: 3}
   - {fileID: 1701688722445702860, guid: 9bcc0329962a03047b05e9146dcfa3a5, type: 3}
   floor: {fileID: 603262219}
-  exit: {fileID: 0}
+  exit: {fileID: 1816164652}
+  wall: {fileID: 0}
   wallHeight: 3
   PoissonRadius: 20
 --- !u!33 &1895429228
