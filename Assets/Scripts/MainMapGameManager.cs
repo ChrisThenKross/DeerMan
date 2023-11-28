@@ -23,17 +23,8 @@ public class MainMapGameManager : MonoBehaviour
         NPCDialogue npcDialogue = dialogueManager.GetComponent<NPCDialogue>();
         if(npcDialogue.getConversationStatus()){
             Debug.Log("Loading next scene");
-            // Load next boss fight
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Boss Intro");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight);
         }
-
-        if(GetEnemiesKilled() >= 20)
-        {
-            Debug.Log("Loading next scene");
-            // Load next boss fight
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Boss Intro");
-        }
-
     }
 
     public void UpdateEnemies(TileType[,] map, float squareSize){
