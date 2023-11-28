@@ -36,8 +36,8 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScenes/Stage 2 Boss Intro.unity
     guid: 488b9d18129c5fc4a91f7fe56a451765
   - enabled: 1
-    path: Assets/Scenes/Boss 2 (Bus).unity
-    guid: fa2000043a9836a4a9a4ec440ac1ab68
+    path: Assets/Scenes/boss fight arena/bf2 arena.unity
+    guid: c6bc1140ccd69844f97a179902d5c990
   - enabled: 1
     path: Assets/Scenes/CutScenes/Stage 2 Conclusion.unity
     guid: 48b1c0bbdf99e2b4b872c4147317175a
@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutScenes/Stage 3 Boss Intro.unity
     guid: 580fea90eda05bd4f8f1295d540cc7ef
+  - enabled: 1
+    path: Assets/Scenes/Boss 3 (Train).unity
+    guid: ee3c59d4df4f68240bd4995ebe2cc2a2
   - enabled: 1
     path: Assets/Scenes/CutScenes/Conclusion on Victory.unity
     guid: eaf63b8c0c3261545a9e2cb339445577

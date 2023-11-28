@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5737,7 +5737,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1670282621}
   m_SourcePrefab: {fileID: 100100000, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
 --- !u!4 &423708045 stripped
 Transform:
@@ -7922,6 +7925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581531193}
   - component: {fileID: 581531194}
+  - component: {fileID: 581531195}
   m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
@@ -8006,6 +8010,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &581531195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581531192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!4 &585693930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6996245158790658319, guid: 48841a4659d90b64e8ef9555bdc5a3f6, type: 3}
@@ -8251,17 +8278,16 @@ MonoBehaviour:
   smallSpellAudio: {fileID: 549049709}
   spellQueue: {fileID: 196580307}
   castPoint: {fileID: 394871234}
+  blud: {fileID: 0}
   small_fireball: {fileID: 5849168742951630872, guid: f8f8724cbe6462e499e155e0c283fc79, type: 3}
   med_fireball: {fileID: 7655544330341346962, guid: 4ea8449abc25db741af357562a06267f, type: 3}
   big_fireball: {fileID: 4337240297909078098, guid: 3ab40c7614351754aaaa1288b1c601ee, type: 3}
-  small_ice: {fileID: 4630419161944579352, guid: a3b9fecf28918264ab2716ab1d81227a, type: 3}
-  med_ice: {fileID: 7538790813047216005, guid: 8ed81972830051a4d8682683b7c2e862, type: 3}
-  big_ice: {fileID: 8209180894494509333, guid: 8083e33bb1cdafc4084db11459bfab72, type: 3}
   small_horn: {fileID: 1485873243104171800, guid: 25d92d83eaf09204abb2e67713f678f3, type: 3}
   med_horn: {fileID: 6619877401645090768, guid: 3695647b27b5ac0459dfec2ada4b04b7, type: 3}
   big_horn: {fileID: 5010228428338568453, guid: b91eaebfce1698e40a778cba046fb02a, type: 3}
+  firehorn: {fileID: 0}
   firefirehorn: {fileID: 5287509463830909196, guid: ac726c71e4c74a14eb15907e24a90e4f, type: 3}
-  spellToCast: {fileID: 7655544330341346962, guid: 4ea8449abc25db741af357562a06267f, type: 3}
+  firehornhorn: {fileID: 0}
 --- !u!114 &594993855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12158,7 +12184,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -21706,6 +21732,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6545456707962685743, guid: 94d4fc26d6cbb844697a1004cd372e5a, type: 3}
   m_PrefabInstance: {fileID: 421006028}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1670282621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670282620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e215303003856048a07df6f5ca87201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossObject: {fileID: 1670282620}
 --- !u!1001 &1673806034
 PrefabInstance:
   m_ObjectHideFlags: 0

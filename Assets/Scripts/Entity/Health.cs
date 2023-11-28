@@ -21,11 +21,7 @@ public class Health : MonoBehaviour
 
     public virtual void Update()
     {
-        if(IsDead() == true)
-        {
-            // alan fix this
-            //UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 1 Conclusion");
-        }
+    
     }
 
     public void TakeDamage(int damage)

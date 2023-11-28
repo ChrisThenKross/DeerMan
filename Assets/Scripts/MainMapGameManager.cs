@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class MainMapGameManager : MonoBehaviour
 {
@@ -9,9 +11,6 @@ public class MainMapGameManager : MonoBehaviour
     public GameObject enemyPrefab;
     private int enemiesKilled;
     private GameObject [] enemies;
-
-    // Store next boss fight here
-    public string nextBossFight;
 
     public void Start(){
         enemiesKilled = -MaxEnemyCount; // Offset for the first time UpdateEnemies is called
@@ -23,8 +22,16 @@ public class MainMapGameManager : MonoBehaviour
         NPCDialogue npcDialogue = dialogueManager.GetComponent<NPCDialogue>();
         if(npcDialogue.getConversationStatus()){
             Debug.Log("Loading next scene");
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight);
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight[0]);
         }
+
+        if (enemiesKilled >= 0)
+            if (SceneManager.GetActiveScene().name == "Map Gen 1")
+                SceneManager.LoadScene("Stage 1 Boss Intro");
+            else if (SceneManager.GetActiveScene().name == "Map Gen 2")
+                SceneManager.LoadScene("Stage 2 Boss Intro");
+            else if (SceneManager.GetActiveScene().name == "Map Gen 3")
+                SceneManager.LoadScene("Stage 3 Boss Intro");
     }
 
     public void UpdateEnemies(TileType[,] map, float squareSize){
