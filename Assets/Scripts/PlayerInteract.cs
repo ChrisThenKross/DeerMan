@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
+                if (collider.TryGetComponent(out MainMapNPCInteract mainMapInteractable))
+                {
+                    mainMapInteractable.Interact();
+                    return;
+                }
                 if (collider.TryGetComponent(out NPCInteract npcInteractable))
                 {
                     npcInteractable.Interact();
