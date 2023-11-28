@@ -19,7 +19,7 @@ MonoBehaviour:
   SplashDamage: 1
   SplashDamageRadius: 1
   enemiesCanPierce: 0
-  onHitFX: {fileID: 736375887137213838, guid: fabaa3ba1a7268547b3ff21cb4e01a39, type: 3}
+  onHitFX: {fileID: 7595246718240155542, guid: 2cc0404601310254290f4049d2f500a0, type: 3}
   knockback: 1
   knockbackForce: 0
   knockbackRadius: 0
