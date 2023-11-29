@@ -203,6 +203,11 @@ public class MagicQueue : MonoBehaviour
                     spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
                     Instantiate(firefirehorn, castPoint.position, castPoint.rotation);
                 }
+                else if (spell.Equals("fireball,horn,horn"))
+                {
+                    spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
+                    Instantiate(firehornhorn, castPoint.position, castPoint.rotation);
+                }
                 else
                 {
                     spellQueue.text = "The spell does nothing.";

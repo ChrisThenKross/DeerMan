@@ -63,6 +63,16 @@ public class Spell : MonoBehaviour
         // wait should we destroy or pierce?
         if (pierceLeft > 0 && (collision.tag == "Enemy" || collision.tag == "EnemyParent"))
         {
+            if (SpellToCast.onHitFX != null)
+            {
+                
+                Debug.Log("doing FX");
+                GameObject fx = Instantiate(SpellToCast.onHitFX, transform.position, Quaternion.identity);
+                Destroy(fx, 1.5f);
+            } else
+            {
+                Debug.Log("yeah im not d oing fx");
+            }
             pierceLeft--;
         }
         else
