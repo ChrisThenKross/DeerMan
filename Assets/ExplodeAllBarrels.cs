@@ -28,7 +28,7 @@ public class ExplodeAllBarrels : MonoBehaviour
             if (healthScript != null)
             {
                 Debug.Log("TAKING TADAMING)");
-                healthScript.TakeDamage(1250);
+                healthScript.TakeDamage(1667);
             }
             gates.SetTrigger("gatesUp");
             gameObject.SetActive(false);

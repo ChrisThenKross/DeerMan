@@ -15,8 +15,9 @@ public class TowerPhase1 : MonoBehaviour
 
     private void Phase2()
     {
+        Debug.Log("dates down");
         anim.SetTrigger("gatesDown");
-        Destroy(gameObject, 2);
+        Destroy(gameObject);
     }
 
 
