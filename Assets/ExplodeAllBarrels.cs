@@ -7,6 +7,7 @@ public class ExplodeAllBarrels : MonoBehaviour
     public GameObject GameElements;
     public ExplosionBarrel ExplodeScript;
     public GameObject Train;
+    public Animator gates;
     private void OnTriggerEnter(Collider other)
     {
         Transform[] allChildren = GameElements.GetComponentsInChildren<Transform>();
@@ -27,8 +28,10 @@ public class ExplodeAllBarrels : MonoBehaviour
             if (healthScript != null)
             {
                 Debug.Log("TAKING TADAMING)");
-                healthScript.TakeDamage(1000);
+                healthScript.TakeDamage(1250);
             }
+            gates.SetTrigger("gatesUp");
+            gameObject.SetActive(false);
         }
     }
 }
