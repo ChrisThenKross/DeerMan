@@ -33,14 +33,19 @@ public class NPCDialogue : MonoBehaviour
 
         if (conversationDone)
         {
-            TextPanel.SetActive(false);
-            DeerWizardImage.SetActive(false);
-            NPCInstructions.SetActive(true);
-            Abilities.SetActive(true);
-            PQueue.SetActive(true);
-            PlayerHealth.SetActive(true);
-            WizardLore.SetActive(false);
+            Invoke("Reset", 2.0f);
         }
+    }
+
+    public void Reset()
+    {
+        TextPanel.SetActive(false);
+        DeerWizardImage.SetActive(false);
+        NPCInstructions.SetActive(true);
+        Abilities.SetActive(true);
+        PQueue.SetActive(true);
+        PlayerHealth.SetActive(true);
+        WizardLore.SetActive(false);
     }
 
     public void StartConversation()
