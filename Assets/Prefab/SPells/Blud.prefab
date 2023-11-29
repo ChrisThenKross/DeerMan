@@ -3008,7 +3008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6413026545113939874
 Transform:
   m_ObjectHideFlags: 0
@@ -9878,7 +9878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4822244901945827886
 Transform:
   m_ObjectHideFlags: 0
@@ -10362,7 +10362,7 @@ MonoBehaviour:
     m_Bits: 8
   lifetime: 6
   timeBetweenAttack: 1.75
-  projectile: {fileID: 2831711359184402968, guid: 60a1785dfb11fdf419f3828516ac2ee3, type: 3}
+  projectile: {fileID: 6844402811798381952, guid: 60a1785dfb11fdf419f3828516ac2ee3, type: 3}
   throwPoint: {fileID: 5371944522795965552}
   attackRange: 4.75
 --- !u!1 &5343227172552315985
