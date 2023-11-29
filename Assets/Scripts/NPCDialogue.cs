@@ -13,6 +13,14 @@ public class NPCDialogue : MonoBehaviour
 
     public GameObject continueButton;
 
+    public GameObject TextPanel;
+    public GameObject DeerWizardImage;
+    public GameObject NPCInstructions; 
+    public GameObject Abilities;
+    public GameObject PQueue;
+    public GameObject PlayerHealth;
+    public GameObject WizardLore;
+
     public void Update()
     {
         if (textDisplay.text == sentences[index])
@@ -22,10 +30,28 @@ public class NPCDialogue : MonoBehaviour
             else
                 continueButton.SetActive(true);
         }
+
+        if (conversationDone)
+        {
+            TextPanel.SetActive(false);
+            DeerWizardImage.SetActive(false);
+            NPCInstructions.SetActive(true);
+            Abilities.SetActive(true);
+            PQueue.SetActive(true);
+            PlayerHealth.SetActive(true);
+            WizardLore.SetActive(false);
+        }
     }
 
     public void StartConversation()
     {
+        TextPanel.SetActive(true);
+        DeerWizardImage.SetActive(true);
+        NPCInstructions.SetActive(false);
+        Abilities.SetActive(false);
+        PQueue.SetActive(false);
+        PlayerHealth.SetActive(false);
+        
         conversationDone = false;
         textDisplay.text = "";
         StartCoroutine(Type());
