@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4337240297909078098}
   m_Layer: 10
   m_Name: big_Fireball
-  m_TagString: Untagged
+  m_TagString: UserProjectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

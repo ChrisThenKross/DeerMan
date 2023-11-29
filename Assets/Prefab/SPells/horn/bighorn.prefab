@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6605776179634553178}
   m_Layer: 10
   m_Name: bighorn
-  m_TagString: Untagged
+  m_TagString: UserProjectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
