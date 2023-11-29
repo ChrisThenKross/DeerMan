@@ -95,7 +95,7 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            AddSpell("fireball");
+            AddSpell("Fireball");
         }
     }
 
@@ -103,7 +103,7 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            AddSpell("blud");
+            AddSpell("Blud");
         }
     }
 
@@ -111,7 +111,7 @@ public class MagicQueue : MonoBehaviour
     {
         if (context.started)
         {
-            AddSpell("horn");
+            AddSpell("Horn");
         }
     }
 
@@ -146,70 +146,70 @@ public class MagicQueue : MonoBehaviour
                 // instantiate whatever spell was just created
 
                 // please replace after this works
-                if (spell.Equals("fireball"))
+                if (spell.Equals("Fireball"))
                 {
-                    spellQueue.text = "Casted spell: small fireball";
+                    spellQueue.text = "Cast: Small Fireball";
                     Instantiate(small_fireball, castPoint.position, castPoint.rotation);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("fireball,fireball"))
+                else if (spell.Equals("Fireball,Fireball"))
                 {
-                    spellQueue.text = "Casted spell: medium fireball";
+                    spellQueue.text = "Cast: Medium Fireball";
                     Instantiate(med_fireball, castPoint.position, castPoint.rotation);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("fireball,fireball,fireball"))
+                else if (spell.Equals("Fireball,Fireball,Fireball"))
                 {
                     
-                    spellQueue.text = "Casted spell: large fireball";
+                    spellQueue.text = "Cast: Large Fireball";
                     Instantiate(big_fireball, castPoint.position, castPoint.rotation);
                     PlayFire();
                 }
-                else if (spell.Equals("blud"))
+                else if (spell.Equals("Blud"))
                 {
-                    spellQueue.text = "Casted spell: summon blud";
+                    spellQueue.text = "Cast: Summon Blud";
                     SummonBlud(1);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("blud,blud"))
+                else if (spell.Equals("Blud,Blud"))
                 {
-                    spellQueue.text = "Casted spell: summon bluds";
+                    spellQueue.text = "Cast: Summon Bluds";
                     SummonBlud(2);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("blud,blud,blud"))
+                else if (spell.Equals("Blud,Blud,Blud"))
                 {
-                    spellQueue.text = "Casted spell: summon 3 bluds";
+                    spellQueue.text = "Cast: Summon 3 Bluds";
                     SummonBlud(3);
                     PlayIce();
                 }
-                else if (spell.Equals("horn"))
+                else if (spell.Equals("Horn"))
                 {
 
-                    spellQueue.text = "Casted spell: small horn";
+                    spellQueue.text = "Cast: Small Horn";
                     Instantiate(small_horn, castPoint.position, castPoint.rotation);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("horn,horn"))
+                else if (spell.Equals("Horn,Horn"))
                 {
-                    spellQueue.text = "Casted spell: medium horn";
+                    spellQueue.text = "Cast: Medium Horn";
                     Instantiate(med_horn, castPoint.position, castPoint.rotation);
                     PlaySmallSpell();
                 }
-                else if (spell.Equals("horn,horn,horn"))
+                else if (spell.Equals("Horn,Horn,Horn"))
                 {
-                    spellQueue.text = "Casted spell: large horn";
+                    spellQueue.text = "Cast: Large Horn";
                     Instantiate(big_horn, castPoint.position, castPoint.rotation);
                     PlayHorn();
                 }
-                else if (spell.Equals("fireball,fireball,horn"))
+                else if (spell.Equals("Fireball,Fireball,Horn"))
                 {
-                    spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
+                    spellQueue.text = "Cast: BIG OP MEGA HORN!";
                     Instantiate(firefirehorn, castPoint.position, castPoint.rotation);
                 }
                 else if (spell.Equals("fireball,horn,horn"))
                 {
-                    spellQueue.text = "Casted spell: BIG OP MEGA HORN!";
+                    spellQueue.text = "Cast: BIG OP MEGA HORN!";
                     Instantiate(firehornhorn, castPoint.position, castPoint.rotation);
                 }
                 else
