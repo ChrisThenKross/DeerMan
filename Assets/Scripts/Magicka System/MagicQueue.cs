@@ -13,6 +13,8 @@ public class MagicQueue : MonoBehaviour
     public AudioSource comboAudio;
     public AudioSource smallSpellAudio;
 
+    public Animator anim;
+
     //private Queue<string> spells = new Queue<string> ();
     private List<string> spells = new List<string>();
     private InputManager playerControls;
@@ -130,6 +132,7 @@ public class MagicQueue : MonoBehaviour
 
     public void castSpell(InputAction.CallbackContext context)
     {
+        anim.SetTrigger("Shoot");
         if (context.started)
         {
             if (spells.Count > 0)
