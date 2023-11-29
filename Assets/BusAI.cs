@@ -8,7 +8,6 @@ public class BusAI : MonoBehaviour
 
     public Transform player;
 
-
     public LayerMask whatIsGround, whatIsPlayer;
 
     public Animator MinigunAnimator;
@@ -71,18 +70,26 @@ public class BusAI : MonoBehaviour
     IEnumerator ChargedAttack()
     {
         alreadyAttacked = false;
-        transform.LookAt(player);
         agent.ResetPath();
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        transform.LookAt(player);
         attackIndicator.SetActive(true);
         attacking = true;
         Debug.Log(player.position);
+        transform.LookAt(player);
         Vector3 target = (player.position + (player.position - transform.position));
+        transform.LookAt(player);
         yield return new WaitForSeconds(1);
         Debug.Log("I have waited! CHARGE!!!!");
+        transform.LookAt(player);
         attackIndicator.SetActive(false);
         /*while (target != transform.position)*/
         int i = 0;
         //while (Vector3.Distance(transform.position,target) > 10f)
+
+
         // this is beyonndddddd scuffed idk how coroutines really work
         while (i < 750)
         {
