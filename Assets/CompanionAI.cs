@@ -26,7 +26,20 @@ public class CompanionAI : Entity
     {
         enemies = GameObject.FindGameObjectsWithTag("EnemyParent");
         int num = Random.Range(0, enemies.Length);
-        player = enemies[num].transform;
+        Debug.Log("Enemy #" + num);
+        if (enemies.Length <= 0)
+        {
+            Debug.Log("no enemies, returning");
+            return;
+        }
+        if (enemies[num] != null)
+        {
+            player = enemies[num].transform;
+        }
+        else
+        {
+            player = GameObject.Find("Player").transform;
+        }
         //Debug.Log("I chose " + enemies[num].name);
         agent = GetComponent<NavMeshAgent>();
     }

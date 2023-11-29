@@ -13,7 +13,7 @@ public class MagicQueue : MonoBehaviour
     public AudioSource comboAudio;
     public AudioSource smallSpellAudio;
 
-    public Animator anim;
+    private Animator anim;
 
     //private Queue<string> spells = new Queue<string> ();
     private List<string> spells = new List<string>();
@@ -88,6 +88,7 @@ public class MagicQueue : MonoBehaviour
     private void Awake()
     {
         playerControls = new InputManager();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     public void AddFireball(InputAction.CallbackContext context)

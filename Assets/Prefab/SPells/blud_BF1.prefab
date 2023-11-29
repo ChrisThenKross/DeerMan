@@ -10208,7 +10208,7 @@ GameObject:
   - component: {fileID: 1392448287485808210}
   - component: {fileID: 2120352795764515412}
   m_Layer: 0
-  m_Name: Blud
+  m_Name: blud_BF1
   m_TagString: Blud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10223,7 +10223,7 @@ Transform:
   m_GameObject: {fileID: 5201202237365201586}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.09451, y: 12.399349, z: -17.164608}
+  m_LocalPosition: {x: 472.55695, y: -0.0000076293945, z: 326.31018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10356,7 +10356,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 2545609111832505173}
-  agent: {fileID: 0}
+  agent: {fileID: 1392448287485808210}
   Enemy:
     serializedVersion: 2
     m_Bits: 8
