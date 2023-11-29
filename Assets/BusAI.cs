@@ -91,10 +91,10 @@ public class BusAI : MonoBehaviour
 
 
         // this is beyonndddddd scuffed idk how coroutines really work
-        while (i < 750)
+        while (i < 500)
         {
             i++;
-            transform.position = Vector3.MoveTowards(transform.position, target, 50f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, 25f * Time.deltaTime);
             yield return null;
         }
         //rb.isKinematic = false;
@@ -102,7 +102,7 @@ public class BusAI : MonoBehaviour
         yield return new WaitForSeconds(2);
         //rb.isKinematic = true;
         alreadyAttacked = true;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(4);
         Debug.Log("Done! Can attack again");
         attacking = false;
 
