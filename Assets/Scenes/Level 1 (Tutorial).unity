@@ -7848,8 +7848,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1400, y: -1030}
-  m_SizeDelta: {x: 1200, y: 100}
+  m_AnchoredPosition: {x: 150, y: -1030}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169001284
 MonoBehaviour:
@@ -7880,8 +7880,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280953599
-  m_fontColor: {r: 1, g: 0.1641509, b: 0.1641509, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7898,8 +7898,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13152,10 +13152,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 1169001284}
   sentences:
-  - I am the magical wizard
-  - I bestow upon you the magic of fire
-  - Use it carefully
-  - Now go, open this gate and kill everyone!!!11
+  - I am the magical wizard.
+  - I bestow upon you the three deer magicks.
+  - Use it carefully. The elements at the bottom are the ones you can use.
+  - The first is fire, press 1 to use it. Be wary because it could harm you, but
+    it deals great damage.
+  - The second spell is our horn, press 2 to use this one. This spell is able to
+    penetrate your enemies.
+  - "The last of the 3 is bl\xFCd. This is an ancient spell, able to summon the bodies
+    of the dead. Press 3 to use this one."
+  - You can use the WASD keys to move around. To shoot your spell, click in the direction
+    you want to fire it. You can queue up to three spells to combine but you can
+    only shoot one spell at a time so make sure they count.
+  - Now go, open this gate and kill everyone! Remember, combos are your friend.
   typingSpeed: 0.02
   continueButton: {fileID: 548164405}
   TextPanel: {fileID: 2142456965}
