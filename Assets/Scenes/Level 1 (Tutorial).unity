@@ -13160,6 +13160,11 @@ MonoBehaviour:
   continueButton: {fileID: 548164405}
   TextPanel: {fileID: 2142456965}
   DeerWizardImage: {fileID: 2033860526}
+  NPCInstructions: {fileID: 173047234}
+  Abilities: {fileID: 2113455310}
+  PQueue: {fileID: 562580829}
+  PlayerHealth: {fileID: 1118754972}
+  WizardLore: {fileID: 1169001282}
 --- !u!1 &2030695660
 GameObject:
   m_ObjectHideFlags: 0
