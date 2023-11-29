@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7655544330341346962}
   m_Layer: 10
   m_Name: med_Fireball
-  m_TagString: Untagged
+  m_TagString: UserProjectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

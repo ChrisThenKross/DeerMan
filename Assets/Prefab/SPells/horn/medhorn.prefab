@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3535721351509536596}
   m_Layer: 10
   m_Name: medhorn
-  m_TagString: Untagged
+  m_TagString: UserProjectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
