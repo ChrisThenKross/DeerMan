@@ -4410,7 +4410,7 @@ GameObject:
   - component: {fileID: 254210056}
   - component: {fileID: 254210055}
   m_Layer: 5
-  m_Name: Horns
+  m_Name: Blud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4455,7 +4455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e364eafa29009c468168bd95d6a4e1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e27de90df87d0044cb89a34d938c3762, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19621,7 +19621,7 @@ GameObject:
   - component: {fileID: 1234901520}
   - component: {fileID: 1234901519}
   m_Layer: 5
-  m_Name: Ice
+  m_Name: Horns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19666,7 +19666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 977e8c2175cc20b4d90e569dfd18dbce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e364eafa29009c468168bd95d6a4e1e, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
