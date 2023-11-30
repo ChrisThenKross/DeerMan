@@ -2,41 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlowingUpGasPhase : MonoBehaviour
+public class FinalTrain : MonoBehaviour
 {
-    public GameObject train, Explosion, Explosion2, enemies;
+    public GameObject train, Explosion;
     private Health trainHealth;
-    public Animator gates;
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Awake()
     {
         Explosion.SetActive(false);
-        Explosion2.SetActive(false);
         trainHealth = train.GetComponent<Health>();
     }
 
     public void Explode()
     {
         Explosion.SetActive(true);
-        Explosion2.SetActive(true);
     }
 
     private void Update()
     {
-        if (trainHealth.currentHealth < 1666)
+        if (trainHealth.currentHealth < 1)
         {
+            Debug.Log("game is done");
             Explode();
-            gates.SetTrigger("gatesUp");
-            enemies.SetActive(true);
-            Destroy(gameObject);
+            Destroy(gameObject,1);
+
+            //FINAL ENDING TRIGGER GOES HERE!!!!
         }
     }
 
 
-
     private void OnTriggerEnter(Collider c)
     {
-        if (trainHealth.currentHealth < 5000 && c.gameObject.tag == "UserProjectiles")
+        if (trainHealth.currentHealth < 1667 && c.gameObject.tag == "UserProjectiles")
         {
             trainHealth.TakeDamage(75);
         }

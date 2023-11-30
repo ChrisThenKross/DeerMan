@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ExplodeAllBarrels : MonoBehaviour
 {
-    public GameObject GameElements;
     public ExplosionBarrel ExplodeScript;
-    public GameObject Train;
+    public GameObject Train, GameElements, Enemies;
     public Animator gates;
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +29,7 @@ public class ExplodeAllBarrels : MonoBehaviour
                 Debug.Log("TAKING TADAMING)");
                 healthScript.TakeDamage(1667);
             }
+            Enemies.SetActive(true);
             gates.SetTrigger("gatesUp");
             gameObject.SetActive(false);
         }
