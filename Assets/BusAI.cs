@@ -53,17 +53,17 @@ public class BusAI : MonoBehaviour
         health = GetComponent<Health>().currentHealth;
 
         //Phase 1 Charged Attack
-        if (!playerInChargeRange && alreadyAttacked && health>=2500) ChasePlayer();
-        if (playerInChargeRange && alreadyAttacked && health >= 2500) ChasePlayer(); //moving while cooldown
-        if (playerInChargeRange && !attacking && health >= 2500) StartCoroutine(ChargedAttack());
+        if (!playerInChargeRange && alreadyAttacked && health>=1250) ChasePlayer();
+        if (playerInChargeRange && alreadyAttacked && health >= 1250) ChasePlayer(); //moving while cooldown
+        if (playerInChargeRange && !attacking && health >= 1250) StartCoroutine(ChargedAttack());
         //Phase 2 Charged Attack & Turret
-        if (health < 2500 & !PhaseTransition)
+        if (health < 1250 & !PhaseTransition)
         {
             phaseTwo = true;
             StartCoroutine(NextPhase());
         }
-        if (health < 2500 & PhaseTransition & !RangeTooClose) ChasePlayer();
-        if (health < 2500 & PhaseTransition & RangeTooClose) SpinAttack();
+        if (health < 1250 & PhaseTransition & !RangeTooClose) ChasePlayer();
+        if (health < 1250 & PhaseTransition & RangeTooClose) SpinAttack();
     }
 
 
