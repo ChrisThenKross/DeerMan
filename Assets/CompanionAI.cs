@@ -19,15 +19,33 @@ public class CompanionAI : Entity
     [SerializeField] private Transform throwPoint;
 
     //States
-    public float attackRange;
+    public float attackRange, sightRange;
     private bool playerInAttackRange;
 
     private void Awake()
     {
-        enemies = GameObject.FindGameObjectsWithTag("EnemyParent");
-        int num = Random.Range(0, enemies.Length);
-        Debug.Log("Enemy #" + num);
-        if (enemies.Length <= 0)
+        //enemies = GameObject.FindGameObjectsWithTag("EnemyParent");
+        //int num = Random.Range(0, enemies.Length);
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, sightRange);
+        List<Collider> Parents = new List<Collider>();
+
+        foreach(Collider col in colliders)
+        {
+            Debug.Log(col.gameObject.tag);
+            if (col.gameObject.tag == "EnemyParent")
+                Parents.Add(col);
+                //player = col.gameObject.transform;
+        }
+        int num = Random.Range(0, Parents.Capacity);
+        player = Parents[num].transform;
+
+        //if (player == null) player = GameObject.Find("Player").transform;
+
+
+
+
+/*        if (enemies.Length <= 0)
         {
             Debug.Log("no enemies, returning");
             return;
@@ -39,7 +57,7 @@ public class CompanionAI : Entity
         else
         {
             player = GameObject.Find("Player").transform;
-        }
+        }*/
         //Debug.Log("I chose " + enemies[num].name);
         agent = GetComponent<NavMeshAgent>();
     }
@@ -109,5 +127,7 @@ public class CompanionAI : Entity
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }
