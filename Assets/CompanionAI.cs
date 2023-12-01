@@ -37,28 +37,10 @@ public class CompanionAI : Entity
                 Parents.Add(col);
                 //player = col.gameObject.transform;
         }
-        int num = Random.Range(0, Parents.Capacity);
-        player = Parents[num].transform;
+        int num = Random.Range(0, Parents.Count);
+        if (Parents.Count == 0) player = GameObject.Find("Player").transform;
+        else player = Parents[num].transform;
 
-        //if (player == null) player = GameObject.Find("Player").transform;
-
-
-
-
-/*        if (enemies.Length <= 0)
-        {
-            Debug.Log("no enemies, returning");
-            return;
-        }
-        if (enemies[num] != null)
-        {
-            player = enemies[num].transform;
-        }
-        else
-        {
-            player = GameObject.Find("Player").transform;
-        }*/
-        //Debug.Log("I chose " + enemies[num].name);
         agent = GetComponent<NavMeshAgent>();
     }
 
