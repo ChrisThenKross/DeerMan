@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TowerPhase1 : MonoBehaviour
 {
     public Animator anim;
+    [SerializeField] private TMP_Text storyText;
     void Update()
     {
         int left = gameObject.transform.childCount;
@@ -17,6 +19,7 @@ public class TowerPhase1 : MonoBehaviour
     {
         Debug.Log("dates down");
         anim.SetTrigger("gatesDown");
+        storyText.text = "Gates came down! Time to attack!";
         Destroy(gameObject);
     }
 

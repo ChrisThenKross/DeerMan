@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ExplodeAllBarrels : MonoBehaviour
 {
     public ExplosionBarrel ExplodeScript;
     public GameObject Train, GameElements, Enemies;
     public Animator gates;
+    [SerializeField] private TMP_Text storyText;
     private void OnTriggerEnter(Collider other)
     {
         Transform[] allChildren = GameElements.GetComponentsInChildren<Transform>();
@@ -31,6 +33,7 @@ public class ExplodeAllBarrels : MonoBehaviour
             }
             Enemies.SetActive(true);
             gates.SetTrigger("gatesUp");
+            storyText.text = "Hmm, looks like the gates are powered by those towers!";
             gameObject.SetActive(false);
         }
     }

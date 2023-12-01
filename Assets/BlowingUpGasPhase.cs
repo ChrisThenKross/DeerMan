@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BlowingUpGasPhase : MonoBehaviour
 {
     public GameObject train, Explosion, Explosion2, enemies;
     private Health trainHealth;
     public Animator gates;
+    [SerializeField] private TMP_Text storyText;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class BlowingUpGasPhase : MonoBehaviour
             Explode();
             gates.SetTrigger("gatesUp");
             enemies.SetActive(true);
+            storyText.text = "The conductor came out! This is it!";
             Destroy(gameObject);
         }
     }
