@@ -76,7 +76,7 @@ public class MeshGenerator : MonoBehaviour {
             playerPos = new Vector2 (UnityEngine.Random.Range (0, map.GetLength (0)), UnityEngine.Random.Range (0, map.GetLength (1)));
         }
 
-        Vector3 playerpos3 = new Vector3 (playerPos.x, .5f, playerPos.y);
+        Vector3 playerpos3 = new Vector3 (playerPos.x, .143f, playerPos.y);
         playerpos3 *= squareSize;
         playerpos3.x -= map.GetLength (0) * squareSize / 2f;
         playerpos3.z -= map.GetLength (1) * squareSize / 2f;
