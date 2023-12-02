@@ -26,8 +26,8 @@ public class MainMapGameManager : MonoBehaviour
             Debug.Log("Loading next scene");
             //UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight[0]);
         }
-        enemiesLeft.text = ("I have killed " + enemiesKilled + "/20 disgusting human vermin!");
-        if (enemiesKilled >= 20) //Set this to 0 or 1 for testing purposes
+        enemiesLeft.text = ("I have killed " + enemiesKilled + "/12 disgusting human vermin!");
+        if (enemiesKilled >= 12) //Set this to 0 or 1 for testing purposes
             if (SceneManager.GetActiveScene().name == "Map Gen 1")
                 SceneManager.LoadScene("Stage 1 Boss Intro");
             else if (SceneManager.GetActiveScene().name == "Map Gen 2")

@@ -23,6 +23,6 @@ public class TransitionToStage3Boss : MonoBehaviour
 
     public void SceneCalling()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Boss 3 (Train)");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("bf3 arena");
     }
 }

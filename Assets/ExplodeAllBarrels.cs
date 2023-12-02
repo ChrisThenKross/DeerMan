@@ -33,7 +33,7 @@ public class ExplodeAllBarrels : MonoBehaviour
             }
             Enemies.SetActive(true);
             gates.SetTrigger("gatesUp");
-            storyText.text = "Hmm, looks like the gates are powered by those towers!";
+            storyText.text = "Hmm, looks like the gates are powered by those 5 towers!";
             gameObject.SetActive(false);
         }
     }
