@@ -1,3 +1,5 @@
+What to expect: 3 stages, 3 bosses
+
 ~~~Known Bugs~~~
 - The bus boss' navmesh is slightly messed up, the charge attack will cause the bus to slide unpredictably
 
