@@ -2938,7 +2938,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemyCount: 100
-  enemyPrefab: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+  enemyPrefab1: {fileID: 1487303831258879601, guid: 7987498e63455c643a82ed0e5b95a40a, type: 3}
+  enemyPrefab2: {fileID: 1871865618790574796, guid: 9921affc04a35424ab81d23a6f48679f, type: 3}
+  enemyPrefab3: {fileID: 4666198374053449955, guid: 6f2e7a090022ccb46a4543ddf9015658, type: 3}
   enemiesLeft: {fileID: 1864240033}
 --- !u!114 &1895429234
 MonoBehaviour:

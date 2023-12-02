@@ -9,7 +9,7 @@ public class MainMapGameManager : MonoBehaviour
 {
     public int MaxEnemyCount = 20;
 
-    public GameObject enemyPrefab;
+    public GameObject enemyPrefab1, enemyPrefab2, enemyPrefab3;
     private int enemiesKilled;
     private GameObject [] enemies;
     [SerializeField] private TMP_Text enemiesLeft;
@@ -46,7 +46,12 @@ public class MainMapGameManager : MonoBehaviour
             if(enemies[i] == null){
                 float x, z;
                 GetRandomValidPosition(map, squareSize, out x, out z);
-                enemies[i] = Instantiate(enemyPrefab, new Vector3(x, .5f, z), Quaternion.identity);
+
+                int rando = Random.Range(0, 3);
+
+                if(rando == 0) enemies[i] = Instantiate(enemyPrefab1, new Vector3(x, .5f, z), Quaternion.identity);
+                else if (rando == 2) enemies[i] = Instantiate(enemyPrefab2, new Vector3(x, .5f, z), Quaternion.identity);
+                else enemies[i] = Instantiate(enemyPrefab3, new Vector3(x, .5f, z), Quaternion.identity);
 
                 // Put enemy under GameManager
                 enemies[i].transform.parent = transform;

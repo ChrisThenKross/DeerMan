@@ -3161,7 +3161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemyCount: 100
-  enemyPrefab: {fileID: 9126018755174111261, guid: dc0104b3dc941f94a9a4fcbee5f59ddd, type: 3}
+  enemyPrefab1: {fileID: 6402456831147558278, guid: 653d73d509360ed4fbb5a309c5ab2336, type: 3}
+  enemyPrefab2: {fileID: 8940948518308225122, guid: 97a25b5e5598ff94ca978e27e908d38b, type: 3}
+  enemyPrefab3: {fileID: 917190066859963764, guid: 737c9ed876fc36541984d48c06e53907, type: 3}
   enemiesLeft: {fileID: 402817378}
 --- !u!1 &1965103809
 GameObject:
