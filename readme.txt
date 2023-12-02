@@ -17,10 +17,12 @@ Textures FREE - Standard Unity Asset Store
 Simple Particles FX : Toon Effects - Standard Unity Asset Store
 	https://assetstore.unity.com/packages/vfx/particles/simple-particles-fx-toon-effects-244171
 	
-~~~~~ART~~~~~
+~~~~~ART AND SOUNDS~~~~~
 Pixilart - Tools used to create pixel art
 	https://www.pixilart.com/
 Frosty Logs by Tyler Smith - Main Menu Art
 	https://wall.alphacoders.com/big.php?i=1191961
 Apocalyptic Art - Speech Art by Tomer Kamerling
 	https://www.pinterest.com/pin/220183869255260335/
+Sound FX and Game Music
+	https://www.myinstants.com/en/index/us/
