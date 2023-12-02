@@ -12,6 +12,8 @@ public class MagicQueue : MonoBehaviour
     public AudioSource hornAudio;
     public AudioSource comboAudio;
     public AudioSource smallSpellAudio;
+    public AudioSource wrongSpell;
+    public AudioSource summonBlud;
 
     private Animator anim;
 
@@ -75,6 +77,16 @@ public class MagicQueue : MonoBehaviour
     {
         smallSpellAudio.PlayOneShot(smallSpellAudio.clip);
         Debug.Log("ran small spell");
+    }
+    public void PlayWrongSpell()
+    {
+        wrongSpell.PlayOneShot(wrongSpell.clip);
+        Debug.Log("ran wrong spell");
+    }
+    public void PlaySummonBlud()
+    {
+        summonBlud.PlayOneShot(summonBlud.clip);
+        Debug.Log("ran blud spell");
     }
 
 
@@ -156,7 +168,7 @@ public class MagicQueue : MonoBehaviour
                 {
                     spellQueue.text = "Cast: Medium Fireball";
                     Instantiate(med_fireball, castPoint.position, castPoint.rotation);
-                    PlaySmallSpell();
+                    PlayFire();
                 }
                 else if (spell.Equals("Fireball,Fireball,Fireball"))
                 {
@@ -169,19 +181,19 @@ public class MagicQueue : MonoBehaviour
                 {
                     spellQueue.text = "Cast: Summon Blud";
                     SummonBlud(1);
-                    PlaySmallSpell();
+                    //PlaySmallSpell();
                 }
                 else if (spell.Equals("Blud,Blud"))
                 {
                     spellQueue.text = "Cast: Summon Bluds";
                     SummonBlud(2);
-                    PlaySmallSpell();
+                    //PlaySmallSpell();
                 }
                 else if (spell.Equals("Blud,Blud,Blud"))
                 {
                     spellQueue.text = "Cast: Summon 3 Bluds";
                     SummonBlud(3);
-                    PlayIce();
+                    //PlayIce();
                 }
                 else if (spell.Equals("Horn"))
                 {
@@ -200,26 +212,30 @@ public class MagicQueue : MonoBehaviour
                 {
                     spellQueue.text = "Cast: Large Horn";
                     Instantiate(big_horn, castPoint.position, castPoint.rotation);
-                    PlayHorn();
+                    PlayIce();
                 }
                 else if (spell.Equals("Fireball,Fireball,Horn"))
                 {
-                    spellQueue.text = "Cast: BIG OP MEGA HORN!";
+                    spellQueue.text = "Cast: BIG MEGA HORN!";
                     Instantiate(firefirehorn, castPoint.position, castPoint.rotation);
+                    PlayCombo();
                 }
-                else if (spell.Equals("fireball,horn,horn"))
+                else if (spell.Equals("Fireball,Horn,Horn"))
                 {
-                    spellQueue.text = "Cast: BIG OP MEGA HORN!";
+                    spellQueue.text = "Cast: FIRE HORN!";
                     Instantiate(firehornhorn, castPoint.position, castPoint.rotation);
+                    PlayCombo();
                 }
                 else
                 {
                     spellQueue.text = "The spell does nothing.";
+                    PlayWrongSpell();
                 }
             }
             else
             {
                 spellQueue.text = "No spell casted!";
+                //PlayWrongSpell();
             }
         }
     }
@@ -239,9 +255,11 @@ public class MagicQueue : MonoBehaviour
         if (activeBluds > 0)
         {
             spellQueue.text = "Your companions are still alive!";
+            PlayWrongSpell();
             return;
         }
         for (int x = 0; x < amount; x++)
             Instantiate(blud, transform.position + (transform.forward * 2), transform.rotation);
+        PlaySummonBlud();
     }
 }

@@ -12,7 +12,13 @@ public class Spell : MonoBehaviour
     private SphereCollider myCollider;
     private Rigidbody myRigidbody;
     private int pierceLeft;
+    public AudioSource hitSound;
 
+    public void HitSound()
+    {
+        hitSound.PlayOneShot(hitSound.clip);
+        Debug.Log("ran fire");
+    }
     private void Awake()
     {
         pierceLeft = SpellToCast.enemiesCanPierce;
@@ -46,6 +52,7 @@ public class Spell : MonoBehaviour
                     // i dont wanna do this
                 }
                 collision.GetComponent<Health>().TakeDamage((int)SpellToCast.Damage);
+                //HitSound();
             }
         }
 
