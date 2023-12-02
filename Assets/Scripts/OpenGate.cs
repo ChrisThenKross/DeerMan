@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenGate : MonoBehaviour {
     public GameObject DialogueManager;
-    public GameObject enemy;
+    public GameObject enemy, enemy2, enemy3;
     public GameObject EnemyContainer;
 
     void Update () {
@@ -20,9 +20,13 @@ public class OpenGate : MonoBehaviour {
 
             // Spawn enemies
             Vector3 basePosition = new Vector3 (0, 0.5f, 30);
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 5; i++) {
                 Vector3 position = basePosition + new Vector3 (Random.Range (-5, 5), 0, Random.Range (-5, 5));
-                GameObject instance = Instantiate (enemy, position, Quaternion.identity);
+                int rando = Random.Range(0, 3);
+                GameObject instance;
+                if (rando == 0) instance = Instantiate(enemy, position, Quaternion.identity);
+                else if (rando == 2) instance = Instantiate(enemy2, position, Quaternion.identity);
+                else instance = Instantiate(enemy3, position, Quaternion.identity);
                 instance.transform.parent = EnemyContainer.transform;
             }
 
