@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMapGameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MainMapGameManager : MonoBehaviour
     public GameObject enemyPrefab;
     private int enemiesKilled;
     private GameObject [] enemies;
+    [SerializeField] private TMP_Text enemiesLeft;
 
     public void Start(){
         enemiesKilled = -MaxEnemyCount; // Offset for the first time UpdateEnemies is called
@@ -24,7 +26,7 @@ public class MainMapGameManager : MonoBehaviour
             Debug.Log("Loading next scene");
             //UnityEngine.SceneManagement.SceneManager.LoadScene(nextBossFight[0]);
         }
-
+        enemiesLeft.text = ("I have killed " + enemiesKilled + "/20 disgusting human vermin!");
         if (enemiesKilled >= 20) //Set this to 0 or 1 for testing purposes
             if (SceneManager.GetActiveScene().name == "Map Gen 1")
                 SceneManager.LoadScene("Stage 1 Boss Intro");

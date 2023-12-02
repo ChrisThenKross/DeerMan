@@ -1,33 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TransitionStage2Conclusion : MonoBehaviour
 {
     public GameObject bossObject;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Health bossHealth = bossObject.GetComponent<Health>();
+        Debug.Log(bossHealth.currentHealth);
         if (bossHealth.currentHealth <= 0)
         {
-            callScene();
+            Debug.Log("yo he died");
+            SceneManager.LoadScene("Stage 2 Conclusion");
         }
-    }
-
-    public void callScene()
-    {
-        Invoke(nameof(SceneCalling), 3.0f);
-    }
-
-    public void SceneCalling()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Stage 2 Conclusion");
     }
 }
