@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: big_horn
   m_EditorClassIdentifier: 
   Damage: 20
-  Lifetime: 2
+  Lifetime: 4
   Speed: 15
   SpellRadius: 0.5
   SplashDamage: 0

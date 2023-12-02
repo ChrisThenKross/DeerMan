@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: small_horn
   m_EditorClassIdentifier: 
   Damage: 7
-  Lifetime: 2
+  Lifetime: 4
   Speed: 25
   SpellRadius: 0.5
   SplashDamage: 0
