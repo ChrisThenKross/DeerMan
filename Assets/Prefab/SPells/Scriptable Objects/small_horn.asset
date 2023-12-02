@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fef6f1bf9e66b4fbf57912e430f4a2, type: 3}
   m_Name: small_horn
   m_EditorClassIdentifier: 
-  Damage: 5
+  Damage: 7
   Lifetime: 2
   Speed: 25
   SpellRadius: 0.5
   SplashDamage: 0
   SplashDamageRadius: 0
   enemiesCanPierce: 2
+  onHitFX: {fileID: 0}
+  knockback: 0
+  knockbackForce: 0
+  knockbackRadius: 0

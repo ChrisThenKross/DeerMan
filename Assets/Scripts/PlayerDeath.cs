@@ -40,6 +40,7 @@ public class PlayerDeath : MonoBehaviour
     }
     public void RestartTrigger()
     {
+        Debug.Log("GOING TO RESTART");
         SceneManager.LoadScene(currentScene.name);
     }
 }
