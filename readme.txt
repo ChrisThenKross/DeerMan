@@ -26,3 +26,6 @@ Apocalyptic Art - Speech Art by Tomer Kamerling
 	https://www.pinterest.com/pin/220183869255260335/
 Sound FX and Game Music
 	https://www.myinstants.com/en/index/us/
+	https://www.youtube.com/watch?v=lSQRLwO2XLA
+	https://www.youtube.com/watch?v=_TDA9GKHyI8
+	https://www.youtube.com/watch?v=A0pFSvZrivg
